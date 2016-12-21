@@ -2,12 +2,12 @@
 基于环信搭建的即时通讯项目
 
 
-![image](http://ogts0vmmj.bkt.clouddn.com/login.jpeg)
+![image](http://ogts0vmmj.bkt.clouddn.com/addressPage.png)
 
-![image](http://ogts0vmmj.bkt.clouddn.com/message.jpeg)
+![image](http://ogts0vmmj.bkt.clouddn.com/discoverPage.png)
 
-![image](http://ogts0vmmj.bkt.clouddn.com/address.jpeg)
+![image](http://ogts0vmmj.bkt.clouddn.com/groupPage.png)
 
-![image](http://ogts0vmmj.bkt.clouddn.com/discover.jpeg)
+![image](http://ogts0vmmj.bkt.clouddn.com/messagePage.png)
 
-![image](http://ogts0vmmj.bkt.clouddn.com/chatVC.jpeg)
+
