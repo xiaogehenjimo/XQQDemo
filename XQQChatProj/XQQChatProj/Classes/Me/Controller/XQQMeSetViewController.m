@@ -24,9 +24,7 @@
     self.navigationItem.title = @"设置";
     [self.view addSubview:self.myTableView];
     
-    NSArray * tmpArr = @[@[@"账号与安全"],
-                         @[@"新消息通知",@"隐私",@"通用"],
-                         @[@"帮助与反馈",@"自动登录"],
+    NSArray * tmpArr = @[@[@"自动登录"],
                          @[@"退出登录"]];
     [self.dataArr setArray:tmpArr];
 }
@@ -53,8 +51,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
-    if (indexPath.section == 2) {
-        if (indexPath.row == 1) {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
             //右侧放置开关
             cell.accessoryType = UITableViewCellAccessoryNone;
             _autoSwitch = [[UISwitch alloc]init];
@@ -83,7 +81,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 3) {
+    if (indexPath.section == 1) {
         //退出登录
         [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
             if (!error) {
@@ -107,6 +105,7 @@
                 NSLog(@"退出失败:%@",error);
             }
         } onQueue:nil];
+    }else{
     }
 }
 

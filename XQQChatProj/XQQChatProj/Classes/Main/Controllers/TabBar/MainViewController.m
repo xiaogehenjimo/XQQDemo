@@ -35,7 +35,7 @@
     NSArray * controllersName = @[@"XQQMessageViewController",@"XQQAddressViewController",@"XQQDiscoverViewController",@"XQQMeViewController"];
     NSArray * normalImageArr = @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover",@"tabbar_me"];
     NSArray * seletedImageArr = @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL",@"tabbar_meHL"];
-    NSArray * titleArr = @[@"消息",@"通讯录",@"发现",@"我"];
+    NSArray * titleArr = @[@"消息",@"通讯录",@"发现",@"我的"];
     for (NSInteger i = 0; i < controllersName.count; i ++) {
         Class class = NSClassFromString(controllersName[i]);
         UIViewController * vc = [[class alloc]init];

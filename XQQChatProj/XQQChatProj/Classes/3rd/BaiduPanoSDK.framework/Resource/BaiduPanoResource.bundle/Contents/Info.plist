@@ -6,8 +6,6 @@
 	<string>15C50</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleExecutable</key>
-	<string>BaiduPanoResource</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.baidu.lbs.BaiduPanoResource</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -20,10 +18,6 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleSupportedPlatforms</key>
-	<array>
-		<string>MacOSX</string>
-	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>DTCompiler</key>

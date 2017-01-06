@@ -26,7 +26,7 @@
     [gameScore setObject:@"暂未设置" forKey:@"nickName"];
     [gameScore setObject:[NSNumber numberWithBool:NO] forKey:@"isOnline"];
     [gameScore saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-        //进行操作 9e14f51cc5
+        //进行操作
         if (isSuccessful) {//创建网络数据库
             XQQLog(@"网络数据库添加表成功%@",gameScore);
             [XQQManager sharedManager].objectID = gameScore.objectId;
@@ -36,15 +36,27 @@
     }];
 }
 
+
+/*根据昵称查询用户信息*/
+- (void)getUserInfoWithNickName:(NSString*)nickName
+                       complete:(void(^)(NSArray *array, NSError *error))complete{
+    BmobQuery * query = [BmobQuery queryWithClassName:@"ChatUser"];
+    [query whereKey:@"nickName" equalTo:nickName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            complete(array,error);
+    }];
+}
+
+
+
+
 /*block方式查询好友信息*/
 - (void)getOneFriendInfo:(NSString*)userName
                 complete:(void(^)(NSArray *array, NSError *error))complete{
     BmobQuery * query = [BmobQuery queryWithClassName:@"ChatUser"];
     [query whereKey:@"userName" equalTo:userName];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (array.count > 0 ) {
             complete(array,error);
-        }
     }];
 }
 

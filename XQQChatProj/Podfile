@@ -1,7 +1,6 @@
 platform :ios, '8.0'
 pod 'SDWebImage', '~>3.8'
-pod 'MBProgressHUD', '~> 1.0.0'
-pod 'ZFPlayer'
+pod 'ZFPlayer', '~> 2.0.0'
 pod 'YYKit'
 pod 'MJExtension'
 pod 'Masonry'
@@ -10,11 +9,9 @@ pod 'BmobSDK'
 pod 'EaseMobSDKFull', '~>2.2.7'
 pod 'BaiduMapKit'
 pod 'MJRefresh'
+pod 'MBProgressHUD', '~> 1.0.0'
 pod 'SVProgressHUD'
 pod 'AFNetworking', '~> 2.6.2'
-pod "MWPhotoBrowser"
-pod 'Pgyer'
-pod 'PgyUpdate'
 pod "DACircularProgress"
 target 'XQQChatProj' do
 

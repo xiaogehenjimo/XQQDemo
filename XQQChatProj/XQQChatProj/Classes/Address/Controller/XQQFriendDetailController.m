@@ -48,8 +48,6 @@
     self.navigationItem.title = @"详细资料";
     
     NSArray * tmpArr = @[@[@{@"name":_buddy.userName,@"nickName":_buddy.nickName,@"iconURL":_buddy.iconImgaeURL}],//个人信息 以后可以增加
-                         @[@"设置备注和标签"],
-                         @[@{@"地区":@"山东烟台"},@{@"个人相册":@"呵呵"},@{@"更多":@"123"}],
                          ];
     [self.dataArr setArray:tmpArr];
     [self.view addSubview:self.myTableView];
@@ -90,6 +88,7 @@
     }
     return [[UITableViewCell alloc]init];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 100.0;
@@ -97,9 +96,10 @@
         return 44;
     }
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.view showToastWithStr:@"请选择聊天类型"];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
 }
 
 #pragma mark - activity

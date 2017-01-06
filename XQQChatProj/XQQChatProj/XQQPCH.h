@@ -28,9 +28,15 @@
 #define XQQRandomColor          XQQColor(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255))
 #define XQQGrayColor(r)  XQQColor((r),(r),(r))
 #define XQQBGColor       XQQGrayColor(214)
+
 #define iphoneWidth  [UIScreen mainScreen].bounds.size.width
 #define iphoneHeight [UIScreen mainScreen].bounds.size.height
+
+
+
 #define kDocumentsPath                      [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]
+/*图片名字*/
+#define XQQImageName(name)  [UIImage imageNamed:(name)]
 
 //通知名类
 #define XQQNoticPersonInfo @"getCurrentUserInfo"
@@ -42,7 +48,7 @@
 
 
 //链接
-#define XQQCommonURL @"http://api.budejie.com/api/api_open.php"
+#define XQQCommonURL @"https://api.budejie.com/api/api_open.php"
 
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
@@ -81,7 +87,7 @@
 #import "UIImage-Extensions.h"
 #import "XQQRefreshNormalHeader.h"
 #import "NSObject+XQQExtension.h"
-
+#import "XQQBaiduMapTool.h"
 
 #endif
 

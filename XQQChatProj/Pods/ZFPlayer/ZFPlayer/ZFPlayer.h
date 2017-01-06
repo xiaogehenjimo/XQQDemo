@@ -60,6 +60,8 @@
 - (void)zf_controlView:(UIView *)controlView repeatPlayAction:(UIButton *)sender;
 /** 中间播放按钮事件 */
 - (void)zf_controlView:(UIView *)controlView cneterPlayAction:(UIButton *)sender;
+/** 加载失败按钮事件 */
+- (void)zf_controlView:(UIView *)controlView failAction:(UIButton *)sender;
 /** 下载按钮事件 */
 - (void)zf_controlView:(UIView *)controlView downloadVideoAction:(UIButton *)sender;
 /** 切换分辨率按钮事件 */
@@ -76,9 +78,13 @@
 @end
 
 #import "ZFPlayerView.h"
+#import "ZFPlayerModel.h"
 #import "ZFPlayerControlView.h"
 #import "ZFBrightnessView.h"
 #import "UITabBarController+ZFPlayerRotation.h"
 #import "UIViewController+ZFPlayerRotation.h"
 #import "UINavigationController+ZFPlayerRotation.h"
-#import <Masonry/Masonry.h>
+#import "NSObject+Extend.h"
+#import "UIImageView+ZFCache.h"
+#import "Masonry.h"
+#import "ZFFullScreenViewController.h"

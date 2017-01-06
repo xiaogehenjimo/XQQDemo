@@ -44,6 +44,9 @@
 - (void)getFriendList{
     //本地数据库查找好友
     NSArray * friendArr = [[XQQDataManager sharedDataManager] searchAllFriend];
+    for (XQQFriendModel * model in friendArr) {
+        model.isSel = NO;
+    }
     if (friendArr.count > 0) {
         [self.dataArr addObjectsFromArray:friendArr];
         [self.chatTableView reloadData];
@@ -206,6 +209,12 @@
 /*cell被选中或未选中*/
 - (void)cellSelBtnDidSel:(XQQFriendModel*)friendModel
                    isSel:(BOOL)isSel{
+    
+    NSInteger  index = [self.dataArr indexOfObject:friendModel];
+    XQQFriendModel * friend = self.dataArr[index];
+    friend.isSel = isSel;
+    
+    
     if (isSel) {
         //滚动视图添加头像
         [self.selFriendList addObject:friendModel];
@@ -255,7 +264,7 @@
 
 - (UITableView *)chatTableView{
     if (!_chatTableView) {
-        _chatTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, _topScrollView.xqq_bottom, iphoneWidth, iphoneHeight) style:UITableViewStylePlain];
+        _chatTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, _topScrollView.xqq_bottom, iphoneWidth, iphoneHeight - _topScrollView.xqq_height - 64) style:UITableViewStylePlain];
         _chatTableView.delegate = self;
         _chatTableView.dataSource = self;
         _chatTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;

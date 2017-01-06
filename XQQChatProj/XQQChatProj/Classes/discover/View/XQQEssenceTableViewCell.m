@@ -9,9 +9,9 @@
 #import "XQQEssenceTableViewCell.h"
 #import "XQQNavigationController.h"
 #import "MainViewController.h"
-#import <MWPhotoBrowser.h>
+//#import <MWPhotoBrowser.h>
 #import "XQQDiscoverViewController.h"
-@interface XQQEssenceTableViewCell ()<ZFPlayerDelegate,MWPhotoBrowserDelegate>
+@interface XQQEssenceTableViewCell ()<ZFPlayerDelegate>
 
 /** 播放器 */
 @property(nonatomic, strong)  ZFPlayerView  *  playerView;
@@ -146,9 +146,9 @@
             //查看大图  获取当前活动的控制器
             MainViewController * mainVC = (MainViewController*)[[XQQManager sharedManager] getWindow].rootViewController;
             XQQNavigationController * actVC = mainVC.selectedViewController;
-            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
-            browser.zoomPhotosToFill = YES;
-            [actVC pushViewController:browser animated:YES];
+//            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+//            browser.zoomPhotosToFill = YES;
+//            [actVC pushViewController:browser animated:YES];
         };
         self.photoView.frameModel = frameModel;
         commentY = CGRectGetMaxY(self.photoView.frame) + cellBoderWidth;
@@ -291,20 +291,20 @@
 }
 #pragma mark - MWPhotoBrowserDelegate
 
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
-    return 1;
-}
+//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+//    return 1;
+//}
 
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
-    NSString *path = self.frameModel.essenceModel.image0;
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    if ([fileMgr fileExistsAtPath:path]) {
-        // 设置图片浏览器中的图片对象 (本地获取的)
-        return [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:path]];
-    }else{
-        // 设置图片浏览器中的图片对象 (使用网络请求)
-        path = self.frameModel.essenceModel.image0;
-        return [MWPhoto photoWithURL:[NSURL URLWithString:path]];
-    }
-}
+//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+//    NSString *path = self.frameModel.essenceModel.image0;
+//    NSFileManager *fileMgr = [NSFileManager defaultManager];
+//    if ([fileMgr fileExistsAtPath:path]) {
+//        // 设置图片浏览器中的图片对象 (本地获取的)
+//        return [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:path]];
+//    }else{
+//        // 设置图片浏览器中的图片对象 (使用网络请求)
+//        path = self.frameModel.essenceModel.image0;
+//        return [MWPhoto photoWithURL:[NSURL URLWithString:path]];
+//    }
+//}
 @end

@@ -37,13 +37,14 @@
                       locationModel:(BMKPoiInfo*)locationModel
                         messageType:(EMMessageType)messageType;
 
-
 /*解析消息*/
 - (NSString*)analyseMessageWithMessage:(EMMessage*)message;
 
 
 - (void)callOutWithChatter:(NSDictionary *)dict;
+/*是否可以视频*/
 -(BOOL)canVideo;
+
 - (BOOL)canRecord;
 
 /* 时间的转换*/

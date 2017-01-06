@@ -8,13 +8,13 @@
 
 #import "XQQChatLocationController.h"
 #import "XQQLocationCell.h"
+#import "XQQLocationTypeView.h"
 
-@interface XQQChatLocationController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,BMKLocationServiceDelegate,BMKMapViewDelegate,BMKGeoCodeSearchDelegate,BMKMapViewDelegate,BMKAnnotation>
+@interface XQQChatLocationController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,BMKLocationServiceDelegate,BMKMapViewDelegate,BMKMapViewDelegate,BMKAnnotation,typeButtonPressDelegate>
 {
     BOOL isFirstLocation;
 }
-/*定位*/
-@property (nonatomic, strong)   CLLocationManager * CLlocationManager;
+
 /*右上角发送 按钮*/
 @property (nonatomic, strong)   UIButton * sendLocationBtn;
 /*地图*/
@@ -24,8 +24,6 @@
 /*显示列表的tabelView*/
 @property (nonatomic, strong)   UITableView * addressTabelView;
 @property (nonatomic, strong)   NSMutableArray * addressDataArr;
-/*geo搜索*/
-@property (nonatomic, strong)   BMKGeoCodeSearch * geocodesearch;
 /*是否为第一次定位*/
 @property (nonatomic, assign)   BOOL isFirstLocation;
 /*记录当前的经纬度*/
@@ -37,6 +35,8 @@
 @property (nonatomic, strong)   BMKPoiInfo  *  sendModel;
 /*当前地图的中心点*/
 @property (nonatomic, assign)   CLLocationCoordinate2D centerCoordinate;
+/** 用户的位置 */
+@property (nonatomic, assign)   CLLocationCoordinate2D   userLocation;
 /*大头针*/
 @property (nonatomic, strong)   BMKPointAnnotation  * Annotation;
 /*中心点imageView*/
@@ -47,6 +47,19 @@
 @property (nonatomic, assign)   BOOL   isCellClicked;
 /*记录poi搜索状态*/
 @property (nonatomic, assign)   BOOL   isLoading;
+/** 定位按钮 */
+@property (nonatomic, strong)   UIButton  *  locationBtn;
+/** 当前页码 */
+@property (nonatomic, assign)   NSInteger   currentPage;
+
+/** 底部多种选择的view */
+@property (nonatomic, strong)   XQQLocationTypeView  *  bottomTypeView;
+
+/** 关键词 */
+@property (nonatomic, copy)  NSString  *  keyWord;
+/** 搜索的类型 */
+@property(nonatomic, assign)  XQQLocationType   locationType;
+
 @end
 
 @implementation XQQChatLocationController
@@ -54,19 +67,33 @@
     [self.mapView viewWillAppear];
     self.mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     self.locService.delegate = self;
-    self.geocodesearch.delegate = self;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self.mapView viewWillDisappear];
     self.mapView.delegate = nil; // 不用时，置nil
     self.locService.delegate = nil;
-    self.geocodesearch.delegate = nil;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     _isCellClicked = NO;
     _currentRow = 0;
+    _currentPage = 1;
+    _keyWord = @"全部,综合,商场,美食";
+    _locationType = XQQLocationTypeAll;
+    [self initUI];
+    
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    //开启定位
+    isFirstLocation = YES;//首次定位
+    self.currentSelectLocationIndex = 0;
+    [_locService startUserLocationService];
+    
+}
+
+
+- (void)initUI{
     self.navigationItem.title = @"选取位置";
     self.navigationItem.backBarButtonItem.title = @"返回";
     self.navigationItem.rightBarButtonItem = ({
@@ -75,15 +102,15 @@
     });
     //初始化地图
     [self.view addSubview:self.mapView];
+    
     [self.view addSubview:self.centerImageView];
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    //开启定位
-    isFirstLocation = YES;//首次定位
-    self.currentSelectLocationIndex = 0;
-    [_locService startUserLocationService];
+    
+    [self.view addSubview:self.bottomTypeView];
+    
     [self.view addSubview:self.addressTabelView];
 }
+
+
 - (void)mapView:(BMKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
     if (_isCellClicked) {
         _isCellClicked = NO;
@@ -111,11 +138,7 @@
         }];
     }
 }
-//实现相关delegate 处理位置信息更新
-//处理方向变更信息
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation{
-    NSLog(@"heading is %@",userLocation.heading);
-}
+
 /**
  *定位失败后，会调用此函数
  *@param error 错误号
@@ -124,7 +147,7 @@
     [self.view hideToast];
     [self.view makeToast:@"定位失败,检查定位开关是否打开" duration:1.5f position:@"center"];
 }
-
+//定位成功
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
     isFirstLocation = NO;
@@ -139,6 +162,7 @@
     BMKCoordinateRegion region = BMKCoordinateRegionMakeWithDistance(ll, 1000, 1000);
     [self.mapView setRegion:region animated:YES];
     [_locService stopUserLocationService];
+    _userLocation = ll;
 }
 
 
@@ -155,64 +179,108 @@
     }
 }
 
+/*加载更多的poi信息*/
+- (void)loadMorePoiMessage:(CLLocationCoordinate2D)coordinate{
+    
+    [[XQQBaiduMapTool sharedTool] startPOISearch:self.currentCoordinate pageIndex:_currentPage keyWord:_keyWord complete:^(BMKPoiSearch *searcher, BMKPoiResult *poiResult, BMKSearchErrorCode errorCode) {
+        if (errorCode == BMK_SEARCH_NO_ERROR) {
+            [self.addressDataArr addObjectsFromArray:poiResult.poiInfoList];
+            _currentRow = 0;
+            [self refreshTableView];
+            if (_currentPage < poiResult.pageNum) {
+                _currentPage = poiResult.pageIndex + 1;
+            }
+        }else{
+            [self.addressTabelView.mj_footer setState:MJRefreshStateNoMoreData];
+            [self.addressTabelView.mj_footer endRefreshing];
+        }
+        [MBProgressHUD hideHUDForView:self.addressTabelView animated:YES];
+        _isLoading = NO;
+    }];
+}
+
+- (void)refreshTableView{
+    [self.addressTabelView reloadData];
+    if (self.addressTabelView.mj_footer.isRefreshing) {
+        [self.addressTabelView.mj_footer endRefreshing];
+    }
+}
 - (void)startGeocodesearchWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self.addressTabelView makeToastActivity];
-    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
-    reverseGeocodeSearchOption.reverseGeoPoint = coordinate;
-    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
-    if(flag)
-    {
-        NSLog(@"反geo检索发送成功");
-    }
-    else
-    {
-        NSLog(@"反geo检索发送失败");
-    }
-}
-
-#pragma mark - BMKGeoCodeSearchDelegate
-
-/**
- *返回地址信息搜索结果
- *@param searcher 搜索对象
- *@param result 搜索结BMKGeoCodeSearch果
- *@param error 错误号，@see BMKSearchErrorCode
- */
-- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
-    NSLog(@"返回地址信息搜索结果,失败-------------");
-    [self.addressTabelView hideToastActivity];
-}
-
-/**
- *返回反地理编码搜索结果
- *@param searcher 搜索对象
- *@param result 搜索结果
- *@param error 错误号，@see BMKSearchErrorCode
- */
-- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
+    //[self.addressTabelView makeToastActivity];
+    [MBProgressHUD showHUDAddedTo:self.addressTabelView animated:YES];
     
-    if (error == BMK_SEARCH_NO_ERROR) {
-        [self.addressDataArr removeAllObjects];
-        [self.addressDataArr addObjectsFromArray:result.poiList];
-        //把当前定位信息自定义组装 放进数组首位
-        BMKPoiInfo *first =[[BMKPoiInfo alloc]init];
-        first.address = result.address;
-        first.name = @"";
-        first.pt = result.location;
-        first.city = result.addressDetail.city;
-        [self.addressDataArr insertObject:first atIndex:0];
-        _currentRow = 0;
-        [self.addressTabelView reloadData];
-        if (self.addressDataArr.count > 0) {
-            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.addressTabelView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        }
+    if (self.locationType == XQQLocationTypeAll) {
+        [[XQQBaiduMapTool sharedTool] startReverseGeoCodeSearch:coordinate complete:^(BMKGeoCodeSearch *searcher, BMKReverseGeoCodeResult *searchResult, BMKSearchErrorCode error) {
+            if (error == BMK_SEARCH_NO_ERROR) {
+                [self.addressDataArr removeAllObjects];
+                [self.addressDataArr addObjectsFromArray:searchResult.poiList];
+                //把当前定位信息自定义组装 放进数组首位
+                BMKPoiInfo *first =[[BMKPoiInfo alloc]init];
+                first.address = searchResult.address;
+                first.name = [NSString stringWithFormat:@"[当前] %@",searchResult.sematicDescription];
+                first.pt = searchResult.location;
+                first.city = searchResult.addressDetail.city;
+                [self.addressDataArr insertObject:first atIndex:0];
+                _currentRow = 0;
+                [self.addressTabelView reloadData];
+                if (self.addressDataArr.count > 0) {
+                    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    [self.addressTabelView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
+            }
+            [MBProgressHUD hideHUDForView:self.addressTabelView animated:YES];
+            _isLoading = NO;
+        }];
+    }else{
+        [[XQQBaiduMapTool sharedTool] startPOISearch:self.currentCoordinate pageIndex:0 keyWord:_keyWord complete:^(BMKPoiSearch *searcher, BMKPoiResult *poiResult, BMKSearchErrorCode errorCode) {
+            if (errorCode == BMK_SEARCH_NO_ERROR) {
+                [self.addressDataArr removeAllObjects];
+                [self.addressDataArr addObjectsFromArray:poiResult.poiInfoList];
+                _currentRow = 0;
+                [self.addressTabelView reloadData];
+                if (self.addressDataArr.count > 0) {
+                    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    [self.addressTabelView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
+                [MBProgressHUD hideHUDForView:self.addressTabelView animated:YES];
+                _isLoading = NO;
+            }else{
+                [MBProgressHUD hideHUDForView:self.addressTabelView animated:YES];
+                _isLoading = NO;
+            }
+        }];
     }
-    [self.addressTabelView hideToastActivity];
-    _isLoading = NO;
+    
 }
 
+#pragma mark - typeButtonPressDelegate
+
+- (void)typeDidPress:(UIButton *)button type:(XQQLocationType)type{
+    _locationType = type;
+    switch (type) {
+        case XQQLocationTypeAll:{
+            _keyWord = @"全部,综合,商场,美食";
+        }
+            break;
+        case XQQLocationTypeShop:{
+            _keyWord = @"学校";
+        }
+            break;
+        case XQQLocationTypeHouse:{
+            _keyWord = @"小区";
+        }
+            break;
+        case XQQLocationTypeOffice:{
+            _keyWord = @"写字楼";
+        }
+            break;
+        default:
+            break;
+    }
+    //开始地理编码
+    [self startGeocodesearchWithCoordinate:self.currentCoordinate];
+}
 
 #pragma mark - activity
 
@@ -230,6 +298,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+/*定位按钮点击了*/
+- (void)locationBtnDidPress:(UIButton*)button{
+    //移动地图的中心点到当前的定位点
+    [self.mapView setCenterCoordinate:self.userLocation animated:YES];
+}
+
 
 #pragma mark - UITabelViewDelegate
 
@@ -238,19 +312,26 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * idenStr = @"str";
-    XQQLocationCell * cell = [tableView dequeueReusableCellWithIdentifier:idenStr];
-    if (!cell) {
-        cell = [[XQQLocationCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenStr];
-    }
+    XQQLocationCell * cell = [XQQLocationCell cellForTableView:tableView indexPath:indexPath];
     BMKPoiInfo *model = self.addressDataArr[indexPath.row];
     if (indexPath.row != _currentRow) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    cell.addressNameLabel.text = model.name;
+    if (indexPath.row == 0) {
+        if (self.locationType == XQQLocationTypeAll) {
+            NSMutableAttributedString * attStr = [[NSMutableAttributedString alloc]initWithString:model.name];
+            [attStr addAttribute:NSForegroundColorAttributeName value:XQQColor(61, 170, 249) range:NSMakeRange(0, 4)];
+            cell.addressNameLabel.attributedText = attStr;
+        }else{
+            cell.addressNameLabel.text = model.name;
+        }
+    }else{
+        cell.addressNameLabel.text = model.name;
+    }
     cell.addressLabel.text = model.address;
+    cell.addressLabel.textColor = [UIColor grayColor];
     return cell;
 }
 
@@ -273,24 +354,37 @@
     }
     return _headView;
 }
-- (CLLocationManager *)CLlocationManager{
-    if (!_CLlocationManager) {
-        _CLlocationManager = [[CLLocationManager alloc]init];
-        _CLlocationManager.delegate = self;
+
+- (XQQLocationTypeView *)bottomTypeView{
+    if (!_bottomTypeView) {
+        _bottomTypeView = [[XQQLocationTypeView alloc]initWithFrame:CGRectMake(0, self.mapView.xqq_bottom, iphoneWidth, 50)];
+        //_bottomTypeView.backgroundColor = [UIColor yellowColor];
+        _bottomTypeView.delegate = self;
     }
-    return _CLlocationManager;
+    return _bottomTypeView;
 }
 
 - (BMKMapView *)mapView{
     if (!_mapView) {
-        _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 64, iphoneWidth, iphoneHeight - 64 - 300)];
+        _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 64, iphoneWidth, iphoneHeight * 0.5 - 50)];
         _mapView.mapType = BMKMapTypeStandard;
         _mapView.showsUserLocation = NO;//先关闭显示的定位图层
         _mapView.userTrackingMode = BMKUserTrackingModeFollow;//设置定位的状态
         _mapView.showMapScaleBar = YES;
         _mapView.showsUserLocation = YES;//显示定位图层
         _mapView.zoomLevel = 13.0;
-        [_mapView setCompassPosition:CGPointMake(180, 200)];
+        BMKLocationViewDisplayParam * parm = [[BMKLocationViewDisplayParam alloc]init];
+        parm.isAccuracyCircleShow = NO;
+        [_mapView updateLocationViewWithParam:parm];
+        //调整logo位置
+        _mapView.logoPosition = BMKLogoPositionRightBottom;
+        //添加按钮
+        UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(_mapView.xqq_width - 40 - 10, _mapView.xqq_height - 25 - 40, 40, 40)];
+        [button setImage:[UIImage imageNamed:@"location_my"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"location_my_current"] forState:UIControlStateHighlighted];
+        [_mapView addSubview:button];
+        [button addTarget:self action:@selector(locationBtnDidPress:) forControlEvents:UIControlEventTouchUpInside];
+        self.locationBtn = button;
     }
     return _mapView;
 }
@@ -319,10 +413,11 @@
 
 - (UITableView *)addressTabelView{
     if (!_addressTabelView) {
-        _addressTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.mapView.frame)+3, iphoneWidth, iphoneHeight - 3 - 64 - self.mapView.frame.size.height) style:UITableViewStylePlain];
+        _addressTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bottomTypeView.frame)+3, iphoneWidth, iphoneHeight - 3 - 64 - self.mapView.frame.size.height- self.bottomTypeView.xqq_height) style:UITableViewStylePlain];
         _addressTabelView.delegate = self;
         _addressTabelView.dataSource = self;
         _addressTabelView.tableHeaderView = self.headView;
+        _addressTabelView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMorePoiMessage:)];
     }
     return _addressTabelView;
 }
@@ -335,12 +430,5 @@
     return _centerImageView;
 }
 
-//geo搜索
-- (BMKGeoCodeSearch*)geocodesearch{
-    if (_geocodesearch == nil){
-        _geocodesearch=[[BMKGeoCodeSearch alloc]init];
-    }
-    return _geocodesearch;
-}
 
 @end

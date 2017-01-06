@@ -16,6 +16,9 @@
 /** 好友昵称 */
 @property(nonatomic, strong)  UILabel  *  nickNameLabel;
 
+/** 是否点击 */
+@property(nonatomic, assign)  BOOL   isClicked;
+
 @end
 
 @implementation XQQGroupFriendCell
@@ -35,7 +38,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         _selBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 30, 30)];
         [_selBtn setImage:[UIImage imageNamed:@"CellNotSelected"] forState:UIControlStateNormal];
-        [_selBtn setImage:[UIImage imageNamed:@"CellBlueSelected"] forState:UIControlStateSelected];
+        
 
         _selBtn.layer.cornerRadius = 15;
         _selBtn.layer.masksToBounds = YES;
@@ -57,16 +60,31 @@
     }
     return self;
 }
+
 /*cell点击了*/
 - (void)viewTap{
-    [_selBtn setSelected:!_selBtn.isSelected];
-    _didSelected(_model,_selBtn.isSelected);
+    
+    [self changeImage];
 }
+
 /*按钮点击了*/
 - (void)selBtnDidpress:(UIButton*)button{
-    [button setSelected:!button.isSelected];
-    _didSelected(_model,button.isSelected);
+    
+    [self changeImage];
 }
+
+- (void)changeImage{
+    if (_isClicked) {
+        [_selBtn setImage:[UIImage imageNamed:@"CellNotSelected"] forState:UIControlStateNormal];
+        _didSelected(_model,NO);
+        _isClicked = NO;
+    }else{
+        [_selBtn setImage:[UIImage imageNamed:@"CellBlueSelected"] forState:UIControlStateNormal];
+         _didSelected(_model,YES);
+        _isClicked = YES;
+    }
+}
+
 
 - (void)setModel:(XQQFriendModel *)model{
     _model = model;
@@ -76,5 +94,12 @@
         [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.iconImgaeURL] placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     }
     _nickNameLabel.text = [model.nickName isEqualToString:@"暂未设置"] ? model.userName : model.nickName;
+    if (model.isSel) {
+       [_selBtn setImage:[UIImage imageNamed:@"CellBlueSelected"] forState:UIControlStateNormal];
+        _isClicked = YES;
+    }else{
+       [_selBtn setImage:[UIImage imageNamed:@"CellNotSelected"] forState:UIControlStateNormal];
+        _isClicked = NO;
+    }
 }
 @end

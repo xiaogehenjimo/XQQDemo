@@ -18,4 +18,6 @@
 /** 好友头像 */
 @property (nonatomic, copy)  NSString  *  iconImgaeURL;
 
+/** 是否是选中 (只在创建群的时候使用)*/
+@property(nonatomic, assign)  BOOL   isSel;
 @end

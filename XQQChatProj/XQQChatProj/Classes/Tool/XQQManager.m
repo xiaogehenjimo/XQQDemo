@@ -57,6 +57,13 @@ static NSMutableDictionary * _essenceDict;
     return [[[UIApplication sharedApplication] delegate] window];
 }
 
+/*获取tabbarController*/
+- (UITabBarController*)getTabBarControler{
+    UIWindow * window = [[UIApplication sharedApplication].delegate window];
+    //注意! 这里应该是登录之后才能执行这个方法
+    return (UITabBarController*)window.rootViewController;
+}
+
 /*获取当前屏幕显示的viewcontroller*/
 - (UIViewController *)getCurrentVC{
    

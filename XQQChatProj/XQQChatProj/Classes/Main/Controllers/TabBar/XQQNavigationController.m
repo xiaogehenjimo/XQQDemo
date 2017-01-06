@@ -19,11 +19,6 @@
     //配置导航条
     self.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationBar.tintColor = [UIColor whiteColor];
-//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"NUG_background"] forBarMetrics:UIBarMetricsDefault];
-    //self.navigationBar.shadowImage = [[UIImage alloc]init];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,6 +10,16 @@
 
 @implementation XQQLocationCell
 
++ (instancetype)cellForTableView:(UITableView*)tableView
+                       indexPath:(NSIndexPath*)indexPath{
+    static NSString * idenStr = @"str";
+    XQQLocationCell * cell = [tableView dequeueReusableCellWithIdentifier:idenStr];
+    if (!cell) {
+        cell = [[XQQLocationCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenStr];
+    }
+    return cell;
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

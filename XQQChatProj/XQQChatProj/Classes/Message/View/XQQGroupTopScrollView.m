@@ -29,25 +29,34 @@
         //先移除所有子视图
         [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     }
+    //最多8个
+    CGFloat itemWidth = (iphoneWidth - 90) /8.0;
     
     for (NSInteger i = 0; i < selFriendArr.count; i ++) {
        XQQFriendModel * friendModel = selFriendArr[i];
-        CGFloat x = i * (subViewWidth + boardWidth) + boardWidth;
-        UIImageView * iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(x, boardWidth, subViewWidth, subViewWidth)];
+        CGFloat x = i * (itemWidth + boardWidth) + boardWidth;
+        UIImageView * iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(x, boardWidth, itemWidth, itemWidth)];
         iconImageView.alpha = 1;
         iconImageView.opaque = YES;
         iconImageView.hidden = NO;
         iconImageView.backgroundColor = [UIColor redColor];
         NSString * iconURL = friendModel.iconImgaeURL;
+        UIImage * placeImage = XQQImageName(@"1.jpg");
         if ([iconURL isEqualToString:@"1.jpg"]) {
-            iconImageView.image = [UIImage imageNamed:@"1.jpg"];
+            iconImageView.image = placeImage;
         }else{
-            [iconImageView sd_setImageWithURL:[NSURL URLWithString:iconURL] placeholderImage:[UIImage imageNamed:@"1.jpg"]];
+            [iconImageView sd_setImageWithURL:[NSURL URLWithString:iconURL] placeholderImage:placeImage];
         }
         [self addSubview:iconImageView];
     }
     UIImageView * lastImageView = self.subviews.lastObject;
-    self.contentSize = CGSizeMake(CGRectGetMaxX(lastImageView.frame) + boardWidth, 60);
-//    NSLog(@"子视图个数:%ld- 最后一个视图的frame:%@ - 包含的大小:%@",self.subviews.count,NSStringFromCGRect(lastImageView.frame),NSStringFromCGSize(self.contentSize));
+    
+    self.contentSize = CGSizeMake(CGRectGetMaxX(lastImageView.frame) + boardWidth, 0);
+    
+    CGFloat contentX = selFriendArr.count > 8 ? (selFriendArr.count - 8) * (itemWidth + 10) : 0;
+    
+    [self setContentOffset:CGPointMake(contentX, lastImageView.xqq_y - 10) animated:YES];
+    
+    self.xqq_height = itemWidth + 20;
 }
 @end

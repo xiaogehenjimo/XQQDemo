@@ -14,4 +14,8 @@
 /*地址*/
 @property(nonatomic, strong)  UILabel  *  addressLabel;
 
+
++ (instancetype)cellForTableView:(UITableView*)tableView
+                       indexPath:(NSIndexPath*)indexPath;
+
 @end

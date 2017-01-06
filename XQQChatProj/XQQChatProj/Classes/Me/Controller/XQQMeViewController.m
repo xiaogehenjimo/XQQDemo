@@ -65,8 +65,6 @@
     //数据源
     [self.view addSubview:self.myTableView];
     NSArray * tmpArr = @[@[@{@"name":@"",@"image":@"1"}],
-                         @[@{@"name":@"相册",@"image":@"MoreMyAlbum"},@{@"name":@"收藏",@"image":@"MoreMyFavorites"},@{@"name":@"钱包",@"image":@"MoreMyBankCard"},@{@"name":@"卡包",@"image":@"MyCardPackageIcon"}],
-                         @[@{@"name":@"表情",@"image":@"MoreExpressionShops"}],
                          @[@{@"name":@"设置",@"image":@"MoreSetting"}]];
     
     for (NSArray * infoArr in tmpArr) {
@@ -110,7 +108,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 3) {//设置
+    if (indexPath.section == 1) {//设置
         XQQMeSetViewController * setVC = [[XQQMeSetViewController alloc]init];
         setVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:setVC animated:YES];
@@ -119,8 +117,11 @@
         XQQPersionInfoController * persionVC = [[XQQPersionInfoController alloc]init];
         persionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:persionVC animated:YES];
+    }else{
+        
     }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 100.0;

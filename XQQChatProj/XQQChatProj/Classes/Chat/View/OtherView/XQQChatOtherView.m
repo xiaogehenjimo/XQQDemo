@@ -28,8 +28,8 @@
         //初始化四个按钮
         CGFloat btnWidth = (iphoneWidth - 5 * boardWidth)/4;
         CGFloat btnHeight = btnWidth + 20;
-        NSArray * titleArr = @[@"图片",@"拍摄",@"位置",@"测试"];
-        NSArray * imageArr = @[@"Fav_Note_ToolBar_Album",@"Fav_Note_ToolBar_Camera",@"Fav_Note_ToolBar_Location",@"WhatsNewWCOKeypadCall"];
+        NSArray * titleArr = @[@"图片",@"拍摄",@"位置"];
+        NSArray * imageArr = @[@"Fav_Note_ToolBar_Album",@"Fav_Note_ToolBar_Camera",@"Fav_Note_ToolBar_Location"];
         for (NSInteger i = 0; i < titleArr.count; i ++) {
             XQQOtherBtn * button = [[XQQOtherBtn alloc]initWithFrame:CGRectMake(boardWidth + i * (btnWidth +boardWidth), 30, btnWidth, btnHeight)];
             button.tag = 1888888 + i;
@@ -46,8 +46,6 @@
                 self.filmBtn = button;
             }else if (i == 2){
                 self.locationBtn = button;
-            }else if (i == 3){
-                
             }
             [self addSubview:button];
         }

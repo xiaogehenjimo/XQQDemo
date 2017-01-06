@@ -8,12 +8,12 @@
 
 #import "XQQChatViewController.h"
 #import "XQQChatTitleView.h"
-#import "MWPhotoBrowser.h"
+//#import "MWPhotoBrowser.h"
 #import "XQQChatCell.h"
 #import "XQQVoicePlayAnimationTool.h"
 
 
-@interface XQQChatViewController ()<chatInputViewDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,IEMChatProgressDelegate,MWPhotoBrowserDelegate>
+@interface XQQChatViewController ()<chatInputViewDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,IEMChatProgressDelegate>
 /** tableView */
 @property(nonatomic, strong)  UITableView  *  chatTableView;
 /** 数据源数组 */
@@ -184,24 +184,24 @@
 
 #pragma mark - MWPhotoBrowserDelegate
 
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
-    return 1;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
-    
-    EMImageMessageBody *body = self.imageMessage.messageBodies[0];
-    NSString *path = body.localPath;
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    if ([fileMgr fileExistsAtPath:path]) {
-        // 设置图片浏览器中的图片对象 (本地获取的)
-        return [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:path]];
-    }else{
-        // 设置图片浏览器中的图片对象 (使用网络请求)
-        path = body.remotePath;
-        return [MWPhoto photoWithURL:[NSURL URLWithString:path]];
-    }
-}
+//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+//    return 1;
+//}
+//
+//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+//    
+//    EMImageMessageBody *body = self.imageMessage.messageBodies[0];
+//    NSString *path = body.localPath;
+//    NSFileManager *fileMgr = [NSFileManager defaultManager];
+//    if ([fileMgr fileExistsAtPath:path]) {
+//        // 设置图片浏览器中的图片对象 (本地获取的)
+//        return [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:path]];
+//    }else{
+//        // 设置图片浏览器中的图片对象 (使用网络请求)
+//        path = body.remotePath;
+//        return [MWPhoto photoWithURL:[NSURL URLWithString:path]];
+//    }
+//}
 
 #pragma mark - UITableViewDelegate
 

@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		02E37E47F661586D543E91E3 /* libPods-XQQChatProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B15C08981DD791372F5F67B /* libPods-XQQChatProj.a */; };
+		6703734A1E1F30C400FE74AE /* XQQLocationTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670373491E1F30C400FE74AE /* XQQLocationTypeView.m */; };
 		670776DF1DE52BBD008113F8 /* XQQChatTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670776DE1DE52BBD008113F8 /* XQQChatTitleView.m */; };
 		670776E21DE53279008113F8 /* XQQChatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670776E11DE53279008113F8 /* XQQChatInputView.m */; };
+		671B43321E135835008F3441 /* XQQAddInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671B43311E135835008F3441 /* XQQAddInfoController.m */; };
+		671B43351E138B55008F3441 /* XQQSendAddInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671B43341E138B55008F3441 /* XQQSendAddInfoController.m */; };
 		6723D21D1DFE95D200D09E86 /* XQQRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6723D21C1DFE95D200D09E86 /* XQQRouteAnnotation.m */; };
 		672C79581DEBFA2A00B5EA8E /* XQQOtherBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 672C79571DEBFA2A00B5EA8E /* XQQOtherBtn.m */; };
 		672C795F1DEC0EBF00B5EA8E /* XQQLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 672C795E1DEC0EBF00B5EA8E /* XQQLocationCell.m */; };
@@ -2372,8 +2375,27 @@
 		6785C8CD1DDAE1DF00145C26 /* XQQMeSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6785C8CC1DDAE1DF00145C26 /* XQQMeSetViewController.m */; };
 		6785C8D61DDB03DB00145C26 /* XQQMessageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6785C8D51DDB03DB00145C26 /* XQQMessageTool.m */; };
 		6785C8D91DDB04DF00145C26 /* XQQDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6785C8D81DDB04DF00145C26 /* XQQDataManager.m */; };
+		67937AB31E12550200441967 /* XQQSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67937AB21E12550200441967 /* XQQSearchCell.m */; };
+		67937AB91E12633200441967 /* failImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 67937AB81E12633200441967 /* failImage.png */; };
 		6798BB3A1DF6B8D200712885 /* XQQLookGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6798BB391DF6B8D200712885 /* XQQLookGroupController.m */; };
 		6798BB3D1DF6BDDA00712885 /* XQQLookGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6798BB3C1DF6BDDA00712885 /* XQQLookGroupCell.m */; };
+		67A99AFD1E14B7B00061DAAE /* QiniuPutPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AD21E14B7B00061DAAE /* QiniuPutPolicy.m */; };
+		67A99AFE1E14B7B00061DAAE /* QNAsyncRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AD41E14B7B00061DAAE /* QNAsyncRun.m */; };
+		67A99AFF1E14B7B00061DAAE /* QNConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AD61E14B7B00061DAAE /* QNConfig.m */; };
+		67A99B001E14B7B00061DAAE /* QNCrc32.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AD81E14B7B00061DAAE /* QNCrc32.m */; };
+		67A99B011E14B7B00061DAAE /* QNEtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99ADA1E14B7B00061DAAE /* QNEtag.m */; };
+		67A99B021E14B7B00061DAAE /* QNUrlSafeBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99ADC1E14B7B00061DAAE /* QNUrlSafeBase64.m */; };
+		67A99B031E14B7B00061DAAE /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AE01E14B7B00061DAAE /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		67A99B041E14B7B00061DAAE /* QNDns.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AE41E14B7B00061DAAE /* QNDns.m */; };
+		67A99B051E14B7B00061DAAE /* QNHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AE71E14B7B00061DAAE /* QNHttpManager.m */; };
+		67A99B061E14B7B00061DAAE /* QNResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AE91E14B7B00061DAAE /* QNResponseInfo.m */; };
+		67A99B071E14B7B00061DAAE /* QNSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AEB1E14B7B00061DAAE /* QNSessionManager.m */; };
+		67A99B081E14B7B00061DAAE /* QNUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AED1E14B7B00061DAAE /* QNUserAgent.m */; };
+		67A99B091E14B7B00061DAAE /* QNFileRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AF11E14B7B00061DAAE /* QNFileRecorder.m */; };
+		67A99B0A1E14B7B00061DAAE /* QNFormUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AF51E14B7B00061DAAE /* QNFormUpload.m */; };
+		67A99B0B1E14B7B00061DAAE /* QNResumeUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AF71E14B7B00061DAAE /* QNResumeUpload.m */; };
+		67A99B0C1E14B7B00061DAAE /* QNUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AF91E14B7B00061DAAE /* QNUploadManager.m */; };
+		67A99B0D1E14B7B00061DAAE /* QNUploadOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A99AFC1E14B7B00061DAAE /* QNUploadOption.m */; };
 		67B2FD931DDC5325009446C1 /* XQQFrindStatesTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B2FD921DDC5325009446C1 /* XQQFrindStatesTool.m */; };
 		67B2FD9F1DDC5B61009446C1 /* XQQConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B2FD9A1DDC5B61009446C1 /* XQQConversationModel.m */; };
 		67B2FDA01DDC5B61009446C1 /* XQQConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B2FD9D1DDC5B61009446C1 /* XQQConversationCell.m */; };
@@ -2453,10 +2475,6 @@
 		67D92C261DD9539E00C98E1B /* j.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C041DD9539E00C98E1B /* j.jpeg */; };
 		67D92C271DD9539E00C98E1B /* k.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C051DD9539E00C98E1B /* k.jpg */; };
 		67D92C281DD9539E00C98E1B /* l.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C061DD9539E00C98E1B /* l.jpg */; };
-		67D92E981DD9540600C98E1B /* add_friend_icon_addgroup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C9C1DD9540600C98E1B /* add_friend_icon_addgroup@2x.png */; };
-		67D92E991DD9540600C98E1B /* add_friend_icon_addgroup@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C9D1DD9540600C98E1B /* add_friend_icon_addgroup@3x.png */; };
-		67D92E9A1DD9540600C98E1B /* add_friend_icon_offical@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C9E1DD9540600C98E1B /* add_friend_icon_offical@2x.png */; };
-		67D92E9B1DD9540600C98E1B /* add_friend_icon_offical@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92C9F1DD9540600C98E1B /* add_friend_icon_offical@3x.png */; };
 		67D92EB91DD9540700C98E1B /* callBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92CBD1DD9540600C98E1B /* callBg@2x.png */; };
 		67D92EBA1DD9540700C98E1B /* chat_receiver_audio_playing_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92CBE1DD9540600C98E1B /* chat_receiver_audio_playing_full.png */; };
 		67D92EBB1DD9540700C98E1B /* chat_receiver_audio_playing_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D92CBF1DD9540600C98E1B /* chat_receiver_audio_playing_full@2x.png */; };
@@ -2789,34 +2807,26 @@
 		67E6C6E91DED5375004B050B /* XQQPullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E6C6E81DED5375004B050B /* XQQPullViewController.m */; };
 		67E86A491DE29841000C855B /* XQQUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A481DE29841000C855B /* XQQUserInfoTool.m */; };
 		67E86A4C1DE2C185000C855B /* XQQQIniuTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A4B1DE2C185000C855B /* XQQQIniuTool.m */; };
-		67E86ABA1DE2C74A000C855B /* QiniuPutPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A8F1DE2C74A000C855B /* QiniuPutPolicy.m */; };
-		67E86ABB1DE2C74A000C855B /* QNAsyncRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A911DE2C74A000C855B /* QNAsyncRun.m */; };
-		67E86ABC1DE2C74A000C855B /* QNConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A931DE2C74A000C855B /* QNConfig.m */; };
-		67E86ABD1DE2C74A000C855B /* QNCrc32.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A951DE2C74A000C855B /* QNCrc32.m */; };
-		67E86ABE1DE2C74A000C855B /* QNEtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A971DE2C74A000C855B /* QNEtag.m */; };
-		67E86ABF1DE2C74A000C855B /* QNUrlSafeBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A991DE2C74A000C855B /* QNUrlSafeBase64.m */; };
-		67E86AC01DE2C74A000C855B /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86A9D1DE2C74A000C855B /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		67E86AC11DE2C74A000C855B /* QNDns.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AA11DE2C74A000C855B /* QNDns.m */; };
-		67E86AC21DE2C74A000C855B /* QNHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AA41DE2C74A000C855B /* QNHttpManager.m */; };
-		67E86AC31DE2C74A000C855B /* QNResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AA61DE2C74A000C855B /* QNResponseInfo.m */; };
-		67E86AC41DE2C74A000C855B /* QNSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AA81DE2C74A000C855B /* QNSessionManager.m */; };
-		67E86AC51DE2C74A000C855B /* QNUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AAA1DE2C74A000C855B /* QNUserAgent.m */; };
-		67E86AC61DE2C74A000C855B /* QNFileRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AAE1DE2C74A000C855B /* QNFileRecorder.m */; };
-		67E86AC71DE2C74A000C855B /* QNFormUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AB21DE2C74A000C855B /* QNFormUpload.m */; };
-		67E86AC81DE2C74A000C855B /* QNResumeUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AB41DE2C74A000C855B /* QNResumeUpload.m */; };
-		67E86AC91DE2C74A000C855B /* QNUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AB61DE2C74A000C855B /* QNUploadManager.m */; };
-		67E86ACA1DE2C74A000C855B /* QNUploadOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86AB91DE2C74A000C855B /* QNUploadOption.m */; };
 		67E86ACD1DE2C97E000C855B /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E86ACC1DE2C97E000C855B /* UIImage-Extensions.m */; };
 		67EED1E21DDA925A00597AAA /* XQQToastTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EED1E11DDA925A00597AAA /* XQQToastTool.m */; };
+		67F02A7F1E1E252300971531 /* direction_wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F02A7D1E1E252300971531 /* direction_wheel.png */; };
+		67F02A801E1E252300971531 /* direction_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F02A7E1E1E252300971531 /* direction_wheel@2x.png */; };
+		67F02A821E1E312200971531 /* navi_location_compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F02A811E1E312100971531 /* navi_location_compass@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		308D1D4BCD1BD4CBC46BC697 /* Pods-XQQChatProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XQQChatProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-XQQChatProj/Pods-XQQChatProj.release.xcconfig"; sourceTree = "<group>"; };
 		5B15C08981DD791372F5F67B /* libPods-XQQChatProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XQQChatProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		670373481E1F30C400FE74AE /* XQQLocationTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQLocationTypeView.h; sourceTree = "<group>"; };
+		670373491E1F30C400FE74AE /* XQQLocationTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQLocationTypeView.m; sourceTree = "<group>"; };
 		670776DD1DE52BBD008113F8 /* XQQChatTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQChatTitleView.h; sourceTree = "<group>"; };
 		670776DE1DE52BBD008113F8 /* XQQChatTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQChatTitleView.m; sourceTree = "<group>"; };
 		670776E01DE53279008113F8 /* XQQChatInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQChatInputView.h; sourceTree = "<group>"; };
 		670776E11DE53279008113F8 /* XQQChatInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQChatInputView.m; sourceTree = "<group>"; };
+		671B43301E135835008F3441 /* XQQAddInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQAddInfoController.h; sourceTree = "<group>"; };
+		671B43311E135835008F3441 /* XQQAddInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQAddInfoController.m; sourceTree = "<group>"; };
+		671B43331E138B55008F3441 /* XQQSendAddInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQSendAddInfoController.h; sourceTree = "<group>"; };
+		671B43341E138B55008F3441 /* XQQSendAddInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQSendAddInfoController.m; sourceTree = "<group>"; };
 		6723D21B1DFE95D200D09E86 /* XQQRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQRouteAnnotation.h; sourceTree = "<group>"; };
 		6723D21C1DFE95D200D09E86 /* XQQRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQRouteAnnotation.m; sourceTree = "<group>"; };
 		672C79561DEBFA2A00B5EA8E /* XQQOtherBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQOtherBtn.h; sourceTree = "<group>"; };
@@ -5240,10 +5250,53 @@
 		6785C8D51DDB03DB00145C26 /* XQQMessageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQMessageTool.m; sourceTree = "<group>"; };
 		6785C8D71DDB04DF00145C26 /* XQQDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQDataManager.h; sourceTree = "<group>"; };
 		6785C8D81DDB04DF00145C26 /* XQQDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQDataManager.m; sourceTree = "<group>"; };
+		67937AB11E12550200441967 /* XQQSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQSearchCell.h; sourceTree = "<group>"; };
+		67937AB21E12550200441967 /* XQQSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQSearchCell.m; sourceTree = "<group>"; };
+		67937AB81E12633200441967 /* failImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failImage.png; sourceTree = "<group>"; };
 		6798BB381DF6B8D200712885 /* XQQLookGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQLookGroupController.h; sourceTree = "<group>"; };
 		6798BB391DF6B8D200712885 /* XQQLookGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQLookGroupController.m; sourceTree = "<group>"; };
 		6798BB3B1DF6BDDA00712885 /* XQQLookGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQLookGroupCell.h; sourceTree = "<group>"; };
 		6798BB3C1DF6BDDA00712885 /* XQQLookGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQLookGroupCell.m; sourceTree = "<group>"; };
+		67A99AD11E14B7B00061DAAE /* QiniuPutPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuPutPolicy.h; sourceTree = "<group>"; };
+		67A99AD21E14B7B00061DAAE /* QiniuPutPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuPutPolicy.m; sourceTree = "<group>"; };
+		67A99AD31E14B7B00061DAAE /* QNAsyncRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAsyncRun.h; sourceTree = "<group>"; };
+		67A99AD41E14B7B00061DAAE /* QNAsyncRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAsyncRun.m; sourceTree = "<group>"; };
+		67A99AD51E14B7B00061DAAE /* QNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNConfig.h; sourceTree = "<group>"; };
+		67A99AD61E14B7B00061DAAE /* QNConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNConfig.m; sourceTree = "<group>"; };
+		67A99AD71E14B7B00061DAAE /* QNCrc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNCrc32.h; sourceTree = "<group>"; };
+		67A99AD81E14B7B00061DAAE /* QNCrc32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNCrc32.m; sourceTree = "<group>"; };
+		67A99AD91E14B7B00061DAAE /* QNEtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNEtag.h; sourceTree = "<group>"; };
+		67A99ADA1E14B7B00061DAAE /* QNEtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNEtag.m; sourceTree = "<group>"; };
+		67A99ADB1E14B7B00061DAAE /* QNUrlSafeBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUrlSafeBase64.h; sourceTree = "<group>"; };
+		67A99ADC1E14B7B00061DAAE /* QNUrlSafeBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUrlSafeBase64.m; sourceTree = "<group>"; };
+		67A99ADD1E14B7B00061DAAE /* QNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVersion.h; sourceTree = "<group>"; };
+		67A99ADF1E14B7B00061DAAE /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		67A99AE01E14B7B00061DAAE /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		67A99AE11E14B7B00061DAAE /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		67A99AE31E14B7B00061DAAE /* QNDns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDns.h; sourceTree = "<group>"; };
+		67A99AE41E14B7B00061DAAE /* QNDns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDns.m; sourceTree = "<group>"; };
+		67A99AE51E14B7B00061DAAE /* QNhttpDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNhttpDelegate.h; sourceTree = "<group>"; };
+		67A99AE61E14B7B00061DAAE /* QNHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHttpManager.h; sourceTree = "<group>"; };
+		67A99AE71E14B7B00061DAAE /* QNHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHttpManager.m; sourceTree = "<group>"; };
+		67A99AE81E14B7B00061DAAE /* QNResponseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResponseInfo.h; sourceTree = "<group>"; };
+		67A99AE91E14B7B00061DAAE /* QNResponseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResponseInfo.m; sourceTree = "<group>"; };
+		67A99AEA1E14B7B00061DAAE /* QNSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSessionManager.h; sourceTree = "<group>"; };
+		67A99AEB1E14B7B00061DAAE /* QNSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSessionManager.m; sourceTree = "<group>"; };
+		67A99AEC1E14B7B00061DAAE /* QNUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUserAgent.h; sourceTree = "<group>"; };
+		67A99AED1E14B7B00061DAAE /* QNUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUserAgent.m; sourceTree = "<group>"; };
+		67A99AEE1E14B7B00061DAAE /* QiniuSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuSDK.h; sourceTree = "<group>"; };
+		67A99AF01E14B7B00061DAAE /* QNFileRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFileRecorder.h; sourceTree = "<group>"; };
+		67A99AF11E14B7B00061DAAE /* QNFileRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFileRecorder.m; sourceTree = "<group>"; };
+		67A99AF21E14B7B00061DAAE /* QNRecorderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNRecorderDelegate.h; sourceTree = "<group>"; };
+		67A99AF41E14B7B00061DAAE /* QNFormUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFormUpload.h; sourceTree = "<group>"; };
+		67A99AF51E14B7B00061DAAE /* QNFormUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFormUpload.m; sourceTree = "<group>"; };
+		67A99AF61E14B7B00061DAAE /* QNResumeUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResumeUpload.h; sourceTree = "<group>"; };
+		67A99AF71E14B7B00061DAAE /* QNResumeUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResumeUpload.m; sourceTree = "<group>"; };
+		67A99AF81E14B7B00061DAAE /* QNUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUploadManager.h; sourceTree = "<group>"; };
+		67A99AF91E14B7B00061DAAE /* QNUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadManager.m; sourceTree = "<group>"; };
+		67A99AFA1E14B7B00061DAAE /* QNUploadOption+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QNUploadOption+Private.h"; sourceTree = "<group>"; };
+		67A99AFB1E14B7B00061DAAE /* QNUploadOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUploadOption.h; sourceTree = "<group>"; };
+		67A99AFC1E14B7B00061DAAE /* QNUploadOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadOption.m; sourceTree = "<group>"; };
 		67B2FD911DDC5325009446C1 /* XQQFrindStatesTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQFrindStatesTool.h; sourceTree = "<group>"; };
 		67B2FD921DDC5325009446C1 /* XQQFrindStatesTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQFrindStatesTool.m; sourceTree = "<group>"; };
 		67B2FD991DDC5B61009446C1 /* XQQConversationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQConversationModel.h; sourceTree = "<group>"; };
@@ -5368,10 +5421,6 @@
 		67D92C041DD9539E00C98E1B /* j.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = j.jpeg; sourceTree = "<group>"; };
 		67D92C051DD9539E00C98E1B /* k.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = k.jpg; sourceTree = "<group>"; };
 		67D92C061DD9539E00C98E1B /* l.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = l.jpg; sourceTree = "<group>"; };
-		67D92C9C1DD9540600C98E1B /* add_friend_icon_addgroup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend_icon_addgroup@2x.png"; sourceTree = "<group>"; };
-		67D92C9D1DD9540600C98E1B /* add_friend_icon_addgroup@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend_icon_addgroup@3x.png"; sourceTree = "<group>"; };
-		67D92C9E1DD9540600C98E1B /* add_friend_icon_offical@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend_icon_offical@2x.png"; sourceTree = "<group>"; };
-		67D92C9F1DD9540600C98E1B /* add_friend_icon_offical@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend_icon_offical@3x.png"; sourceTree = "<group>"; };
 		67D92CBD1DD9540600C98E1B /* callBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "callBg@2x.png"; sourceTree = "<group>"; };
 		67D92CBE1DD9540600C98E1B /* chat_receiver_audio_playing_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_receiver_audio_playing_full.png; sourceTree = "<group>"; };
 		67D92CBF1DD9540600C98E1B /* chat_receiver_audio_playing_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_receiver_audio_playing_full@2x.png"; sourceTree = "<group>"; };
@@ -5713,50 +5762,13 @@
 		67E86A481DE29841000C855B /* XQQUserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQUserInfoTool.m; sourceTree = "<group>"; };
 		67E86A4A1DE2C185000C855B /* XQQQIniuTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQQIniuTool.h; sourceTree = "<group>"; };
 		67E86A4B1DE2C185000C855B /* XQQQIniuTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQQIniuTool.m; sourceTree = "<group>"; };
-		67E86A8E1DE2C74A000C855B /* QiniuPutPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuPutPolicy.h; sourceTree = "<group>"; };
-		67E86A8F1DE2C74A000C855B /* QiniuPutPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuPutPolicy.m; sourceTree = "<group>"; };
-		67E86A901DE2C74A000C855B /* QNAsyncRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAsyncRun.h; sourceTree = "<group>"; };
-		67E86A911DE2C74A000C855B /* QNAsyncRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAsyncRun.m; sourceTree = "<group>"; };
-		67E86A921DE2C74A000C855B /* QNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNConfig.h; sourceTree = "<group>"; };
-		67E86A931DE2C74A000C855B /* QNConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNConfig.m; sourceTree = "<group>"; };
-		67E86A941DE2C74A000C855B /* QNCrc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNCrc32.h; sourceTree = "<group>"; };
-		67E86A951DE2C74A000C855B /* QNCrc32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNCrc32.m; sourceTree = "<group>"; };
-		67E86A961DE2C74A000C855B /* QNEtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNEtag.h; sourceTree = "<group>"; };
-		67E86A971DE2C74A000C855B /* QNEtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNEtag.m; sourceTree = "<group>"; };
-		67E86A981DE2C74A000C855B /* QNUrlSafeBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUrlSafeBase64.h; sourceTree = "<group>"; };
-		67E86A991DE2C74A000C855B /* QNUrlSafeBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUrlSafeBase64.m; sourceTree = "<group>"; };
-		67E86A9A1DE2C74A000C855B /* QNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVersion.h; sourceTree = "<group>"; };
-		67E86A9C1DE2C74A000C855B /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
-		67E86A9D1DE2C74A000C855B /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
-		67E86A9E1DE2C74A000C855B /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		67E86AA01DE2C74A000C855B /* QNDns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDns.h; sourceTree = "<group>"; };
-		67E86AA11DE2C74A000C855B /* QNDns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDns.m; sourceTree = "<group>"; };
-		67E86AA21DE2C74A000C855B /* QNhttpDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNhttpDelegate.h; sourceTree = "<group>"; };
-		67E86AA31DE2C74A000C855B /* QNHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHttpManager.h; sourceTree = "<group>"; };
-		67E86AA41DE2C74A000C855B /* QNHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHttpManager.m; sourceTree = "<group>"; };
-		67E86AA51DE2C74A000C855B /* QNResponseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResponseInfo.h; sourceTree = "<group>"; };
-		67E86AA61DE2C74A000C855B /* QNResponseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResponseInfo.m; sourceTree = "<group>"; };
-		67E86AA71DE2C74A000C855B /* QNSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSessionManager.h; sourceTree = "<group>"; };
-		67E86AA81DE2C74A000C855B /* QNSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSessionManager.m; sourceTree = "<group>"; };
-		67E86AA91DE2C74A000C855B /* QNUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUserAgent.h; sourceTree = "<group>"; };
-		67E86AAA1DE2C74A000C855B /* QNUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUserAgent.m; sourceTree = "<group>"; };
-		67E86AAB1DE2C74A000C855B /* QiniuSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuSDK.h; sourceTree = "<group>"; };
-		67E86AAD1DE2C74A000C855B /* QNFileRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFileRecorder.h; sourceTree = "<group>"; };
-		67E86AAE1DE2C74A000C855B /* QNFileRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFileRecorder.m; sourceTree = "<group>"; };
-		67E86AAF1DE2C74A000C855B /* QNRecorderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNRecorderDelegate.h; sourceTree = "<group>"; };
-		67E86AB11DE2C74A000C855B /* QNFormUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFormUpload.h; sourceTree = "<group>"; };
-		67E86AB21DE2C74A000C855B /* QNFormUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFormUpload.m; sourceTree = "<group>"; };
-		67E86AB31DE2C74A000C855B /* QNResumeUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResumeUpload.h; sourceTree = "<group>"; };
-		67E86AB41DE2C74A000C855B /* QNResumeUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResumeUpload.m; sourceTree = "<group>"; };
-		67E86AB51DE2C74A000C855B /* QNUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUploadManager.h; sourceTree = "<group>"; };
-		67E86AB61DE2C74A000C855B /* QNUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadManager.m; sourceTree = "<group>"; };
-		67E86AB71DE2C74A000C855B /* QNUploadOption+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QNUploadOption+Private.h"; sourceTree = "<group>"; };
-		67E86AB81DE2C74A000C855B /* QNUploadOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUploadOption.h; sourceTree = "<group>"; };
-		67E86AB91DE2C74A000C855B /* QNUploadOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadOption.m; sourceTree = "<group>"; };
 		67E86ACB1DE2C97E000C855B /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extensions.h"; sourceTree = "<group>"; };
 		67E86ACC1DE2C97E000C855B /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extensions.m"; sourceTree = "<group>"; };
 		67EED1E01DDA925A00597AAA /* XQQToastTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQToastTool.h; sourceTree = "<group>"; };
 		67EED1E11DDA925A00597AAA /* XQQToastTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQToastTool.m; sourceTree = "<group>"; };
+		67F02A7D1E1E252300971531 /* direction_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = direction_wheel.png; sourceTree = "<group>"; };
+		67F02A7E1E1E252300971531 /* direction_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "direction_wheel@2x.png"; sourceTree = "<group>"; };
+		67F02A811E1E312100971531 /* navi_location_compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_location_compass@2x.png"; sourceTree = "<group>"; };
 		CFFF1C05D493039E143E4968 /* Pods-XQQChatProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XQQChatProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XQQChatProj/Pods-XQQChatProj.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -5792,6 +5804,8 @@
 				672C795E1DEC0EBF00B5EA8E /* XQQLocationCell.m */,
 				6723D21B1DFE95D200D09E86 /* XQQRouteAnnotation.h */,
 				6723D21C1DFE95D200D09E86 /* XQQRouteAnnotation.m */,
+				670373481E1F30C400FE74AE /* XQQLocationTypeView.h */,
+				670373491E1F30C400FE74AE /* XQQLocationTypeView.m */,
 			);
 			path = location;
 			sourceTree = "<group>";
@@ -8306,6 +8320,93 @@
 			path = "路径规划";
 			sourceTree = "<group>";
 		};
+		67A99ACF1E14B7B00061DAAE /* QiniuSDK */ = {
+			isa = PBXGroup;
+			children = (
+				67A99AD01E14B7B00061DAAE /* Common */,
+				67A99ADE1E14B7B00061DAAE /* GTMBase64 */,
+				67A99AE21E14B7B00061DAAE /* Http */,
+				67A99AEE1E14B7B00061DAAE /* QiniuSDK.h */,
+				67A99AEF1E14B7B00061DAAE /* Recorder */,
+				67A99AF31E14B7B00061DAAE /* Storage */,
+			);
+			path = QiniuSDK;
+			sourceTree = "<group>";
+		};
+		67A99AD01E14B7B00061DAAE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				67A99AD11E14B7B00061DAAE /* QiniuPutPolicy.h */,
+				67A99AD21E14B7B00061DAAE /* QiniuPutPolicy.m */,
+				67A99AD31E14B7B00061DAAE /* QNAsyncRun.h */,
+				67A99AD41E14B7B00061DAAE /* QNAsyncRun.m */,
+				67A99AD51E14B7B00061DAAE /* QNConfig.h */,
+				67A99AD61E14B7B00061DAAE /* QNConfig.m */,
+				67A99AD71E14B7B00061DAAE /* QNCrc32.h */,
+				67A99AD81E14B7B00061DAAE /* QNCrc32.m */,
+				67A99AD91E14B7B00061DAAE /* QNEtag.h */,
+				67A99ADA1E14B7B00061DAAE /* QNEtag.m */,
+				67A99ADB1E14B7B00061DAAE /* QNUrlSafeBase64.h */,
+				67A99ADC1E14B7B00061DAAE /* QNUrlSafeBase64.m */,
+				67A99ADD1E14B7B00061DAAE /* QNVersion.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		67A99ADE1E14B7B00061DAAE /* GTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				67A99ADF1E14B7B00061DAAE /* GTMBase64.h */,
+				67A99AE01E14B7B00061DAAE /* GTMBase64.m */,
+				67A99AE11E14B7B00061DAAE /* GTMDefines.h */,
+			);
+			path = GTMBase64;
+			sourceTree = "<group>";
+		};
+		67A99AE21E14B7B00061DAAE /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				67A99AE31E14B7B00061DAAE /* QNDns.h */,
+				67A99AE41E14B7B00061DAAE /* QNDns.m */,
+				67A99AE51E14B7B00061DAAE /* QNhttpDelegate.h */,
+				67A99AE61E14B7B00061DAAE /* QNHttpManager.h */,
+				67A99AE71E14B7B00061DAAE /* QNHttpManager.m */,
+				67A99AE81E14B7B00061DAAE /* QNResponseInfo.h */,
+				67A99AE91E14B7B00061DAAE /* QNResponseInfo.m */,
+				67A99AEA1E14B7B00061DAAE /* QNSessionManager.h */,
+				67A99AEB1E14B7B00061DAAE /* QNSessionManager.m */,
+				67A99AEC1E14B7B00061DAAE /* QNUserAgent.h */,
+				67A99AED1E14B7B00061DAAE /* QNUserAgent.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		67A99AEF1E14B7B00061DAAE /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				67A99AF01E14B7B00061DAAE /* QNFileRecorder.h */,
+				67A99AF11E14B7B00061DAAE /* QNFileRecorder.m */,
+				67A99AF21E14B7B00061DAAE /* QNRecorderDelegate.h */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		67A99AF31E14B7B00061DAAE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				67A99AF41E14B7B00061DAAE /* QNFormUpload.h */,
+				67A99AF51E14B7B00061DAAE /* QNFormUpload.m */,
+				67A99AF61E14B7B00061DAAE /* QNResumeUpload.h */,
+				67A99AF71E14B7B00061DAAE /* QNResumeUpload.m */,
+				67A99AF81E14B7B00061DAAE /* QNUploadManager.h */,
+				67A99AF91E14B7B00061DAAE /* QNUploadManager.m */,
+				67A99AFA1E14B7B00061DAAE /* QNUploadOption+Private.h */,
+				67A99AFB1E14B7B00061DAAE /* QNUploadOption.h */,
+				67A99AFC1E14B7B00061DAAE /* QNUploadOption.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		67B2FD941DDC5B61009446C1 /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -8519,6 +8620,7 @@
 		67BA98561DD9478200529384 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				67A99ACF1E14B7B00061DAAE /* QiniuSDK */,
 				675085E31DF1083F00AF8587 /* YCXMenu.h */,
 				675085E41DF1083F00AF8587 /* YCXMenu.m */,
 				675085E51DF1083F00AF8587 /* YCXMenuItem.h */,
@@ -8528,7 +8630,6 @@
 				67E6C6E21DED524E004B050B /* IndoorAlbumPlugin.framework */,
 				67529F1E1DE7DED1009195D7 /* DeviceUtil */,
 				67529F331DE7DED1009195D7 /* VoiceConvert */,
-				67E86A8C1DE2C74A000C855B /* QiniuSDK */,
 				674FAB881DDEED6C00BF0C41 /* JSONKit.h */,
 				674FAB891DDEED6C00BF0C41 /* JSONKit.m */,
 				67CDE6C11DDDA735006FFBEE /* Reachability */,
@@ -8557,6 +8658,10 @@
 				67CDE6C61DDDADEB006FFBEE /* XQQFriendDetailController.m */,
 				67CDE6B81DDD46EC006FFBEE /* XQQAddFriendController.h */,
 				67CDE6B91DDD46EC006FFBEE /* XQQAddFriendController.m */,
+				671B43301E135835008F3441 /* XQQAddInfoController.h */,
+				671B43311E135835008F3441 /* XQQAddInfoController.m */,
+				671B43331E138B55008F3441 /* XQQSendAddInfoController.h */,
+				671B43341E138B55008F3441 /* XQQSendAddInfoController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -8577,6 +8682,8 @@
 				67CDE6BF1DDD81B3006FFBEE /* XQQAddressCell.m */,
 				674FAB791DDEAA6800BF0C41 /* XQQDetailCell.h */,
 				674FAB7A1DDEAA6800BF0C41 /* XQQDetailCell.m */,
+				67937AB11E12550200441967 /* XQQSearchCell.h */,
+				67937AB21E12550200441967 /* XQQSearchCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -8656,6 +8763,10 @@
 		67BA986D1DD9478200529384 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				67F02A811E1E312100971531 /* navi_location_compass@2x.png */,
+				67F02A7D1E1E252300971531 /* direction_wheel.png */,
+				67F02A7E1E1E252300971531 /* direction_wheel@2x.png */,
+				67937AB81E12633200441967 /* failImage.png */,
 				6777A52C1DFFD666001C8C99 /* 路径规划 */,
 				67E6C6DF1DED27EB004B050B /* datouzhen.png */,
 				6773346D1DE6CF2A00950B38 /* 微信官方 */,
@@ -8671,14 +8782,10 @@
 				67D92CBF1DD9540600C98E1B /* chat_receiver_audio_playing_full@2x.png */,
 				67D92CC21DD9540600C98E1B /* chat_receiver_audio_playing1.png */,
 				67D92CC31DD9540600C98E1B /* chat_receiver_audio_playing1@2x.png */,
-				67D92C9E1DD9540600C98E1B /* add_friend_icon_offical@2x.png */,
 				67D92CC41DD9540600C98E1B /* chat_receiver_audio_playing2.png */,
 				67D92CBE1DD9540600C98E1B /* chat_receiver_audio_playing_full.png */,
-				67D92C9C1DD9540600C98E1B /* add_friend_icon_addgroup@2x.png */,
 				67D92CBD1DD9540600C98E1B /* callBg@2x.png */,
-				67D92C9D1DD9540600C98E1B /* add_friend_icon_addgroup@3x.png */,
 				67D92CC51DD9540600C98E1B /* chat_receiver_audio_playing2@2x.png */,
-				67D92C9F1DD9540600C98E1B /* add_friend_icon_offical@3x.png */,
 				67D92CC61DD9540600C98E1B /* chat_receiver_audio_playing3.png */,
 				67D92CC71DD9540600C98E1B /* chat_receiver_audio_playing3@2x.png */,
 				67D92CC81DD9540600C98E1B /* chat_receiver_bg.png */,
@@ -9218,93 +9325,6 @@
 			path = "位置";
 			sourceTree = "<group>";
 		};
-		67E86A8C1DE2C74A000C855B /* QiniuSDK */ = {
-			isa = PBXGroup;
-			children = (
-				67E86A8D1DE2C74A000C855B /* Common */,
-				67E86A9B1DE2C74A000C855B /* GTMBase64 */,
-				67E86A9F1DE2C74A000C855B /* Http */,
-				67E86AAB1DE2C74A000C855B /* QiniuSDK.h */,
-				67E86AAC1DE2C74A000C855B /* Recorder */,
-				67E86AB01DE2C74A000C855B /* Storage */,
-			);
-			path = QiniuSDK;
-			sourceTree = "<group>";
-		};
-		67E86A8D1DE2C74A000C855B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				67E86A8E1DE2C74A000C855B /* QiniuPutPolicy.h */,
-				67E86A8F1DE2C74A000C855B /* QiniuPutPolicy.m */,
-				67E86A901DE2C74A000C855B /* QNAsyncRun.h */,
-				67E86A911DE2C74A000C855B /* QNAsyncRun.m */,
-				67E86A921DE2C74A000C855B /* QNConfig.h */,
-				67E86A931DE2C74A000C855B /* QNConfig.m */,
-				67E86A941DE2C74A000C855B /* QNCrc32.h */,
-				67E86A951DE2C74A000C855B /* QNCrc32.m */,
-				67E86A961DE2C74A000C855B /* QNEtag.h */,
-				67E86A971DE2C74A000C855B /* QNEtag.m */,
-				67E86A981DE2C74A000C855B /* QNUrlSafeBase64.h */,
-				67E86A991DE2C74A000C855B /* QNUrlSafeBase64.m */,
-				67E86A9A1DE2C74A000C855B /* QNVersion.h */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		67E86A9B1DE2C74A000C855B /* GTMBase64 */ = {
-			isa = PBXGroup;
-			children = (
-				67E86A9C1DE2C74A000C855B /* GTMBase64.h */,
-				67E86A9D1DE2C74A000C855B /* GTMBase64.m */,
-				67E86A9E1DE2C74A000C855B /* GTMDefines.h */,
-			);
-			path = GTMBase64;
-			sourceTree = "<group>";
-		};
-		67E86A9F1DE2C74A000C855B /* Http */ = {
-			isa = PBXGroup;
-			children = (
-				67E86AA01DE2C74A000C855B /* QNDns.h */,
-				67E86AA11DE2C74A000C855B /* QNDns.m */,
-				67E86AA21DE2C74A000C855B /* QNhttpDelegate.h */,
-				67E86AA31DE2C74A000C855B /* QNHttpManager.h */,
-				67E86AA41DE2C74A000C855B /* QNHttpManager.m */,
-				67E86AA51DE2C74A000C855B /* QNResponseInfo.h */,
-				67E86AA61DE2C74A000C855B /* QNResponseInfo.m */,
-				67E86AA71DE2C74A000C855B /* QNSessionManager.h */,
-				67E86AA81DE2C74A000C855B /* QNSessionManager.m */,
-				67E86AA91DE2C74A000C855B /* QNUserAgent.h */,
-				67E86AAA1DE2C74A000C855B /* QNUserAgent.m */,
-			);
-			path = Http;
-			sourceTree = "<group>";
-		};
-		67E86AAC1DE2C74A000C855B /* Recorder */ = {
-			isa = PBXGroup;
-			children = (
-				67E86AAD1DE2C74A000C855B /* QNFileRecorder.h */,
-				67E86AAE1DE2C74A000C855B /* QNFileRecorder.m */,
-				67E86AAF1DE2C74A000C855B /* QNRecorderDelegate.h */,
-			);
-			path = Recorder;
-			sourceTree = "<group>";
-		};
-		67E86AB01DE2C74A000C855B /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				67E86AB11DE2C74A000C855B /* QNFormUpload.h */,
-				67E86AB21DE2C74A000C855B /* QNFormUpload.m */,
-				67E86AB31DE2C74A000C855B /* QNResumeUpload.h */,
-				67E86AB41DE2C74A000C855B /* QNResumeUpload.m */,
-				67E86AB51DE2C74A000C855B /* QNUploadManager.h */,
-				67E86AB61DE2C74A000C855B /* QNUploadManager.m */,
-				67E86AB71DE2C74A000C855B /* QNUploadOption+Private.h */,
-				67E86AB81DE2C74A000C855B /* QNUploadOption.h */,
-				67E86AB91DE2C74A000C855B /* QNUploadOption.m */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		894CAC8FBB088BC5333B1A36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -9518,6 +9538,7 @@
 				67D92C171DD9539E00C98E1B /* 23.jpg in Resources */,
 				677340881DE6CF4200950B38 /* mailapp_addAttachicon@2x.png in Resources */,
 				674186681DE5798C008A3B28 /* lxh_xuyuan.png in Resources */,
+				67F02A7F1E1E252300971531 /* direction_wheel.png in Resources */,
 				674186761DE5798C008A3B28 /* lxh_zhuanfa.gif in Resources */,
 				674185DB1DE5798C008A3B28 /* f_jiong@2x.png in Resources */,
 				677340AC1DE6CF4300950B38 /* MessageCenter_TradeIcon@2x.png in Resources */,
@@ -9575,6 +9596,7 @@
 				677341711DE6CF4300950B38 /* OffLinePay_RefreshIcon@2x.png in Resources */,
 				677343161DE6CF4500950B38 /* sharecard_phone@2x.png in Resources */,
 				6741866A1DE5798C008A3B28 /* lxh_youyali.gif in Resources */,
+				67F02A801E1E252300971531 /* direction_wheel@2x.png in Resources */,
 				6773417B1DE6CF4300950B38 /* OpenDownWord@2x.png in Resources */,
 				677340031DE6CF4200950B38 /* letter@2x.png in Resources */,
 				67D92EDE1DD9540700C98E1B /* comment-bar-bg.png in Resources */,
@@ -9595,6 +9617,7 @@
 				677342211DE6CF4400950B38 /* Profilesocial_facebook@2x.png in Resources */,
 				677343B21DE6CF4600950B38 /* UnbundQQTipsicon@2x.png in Resources */,
 				67733F6D1DE6CF4200950B38 /* fileicon_url_wall@2x.png in Resources */,
+				67937AB91E12633200441967 /* failImage.png in Resources */,
 				67733D731DE6CF4000950B38 /* barbuttonicon_delete@2x.png in Resources */,
 				67733D3C1DE6CF4000950B38 /* AlbumShare@2x.png in Resources */,
 				677342421DE6CF4400950B38 /* QRCodeShareBtnHL@2x.png in Resources */,
@@ -9874,7 +9897,6 @@
 				67D92EEE1DD9540700C98E1B /* comment-bar-voice-click@3x.png in Resources */,
 				6773400F1DE6CF4200950B38 /* liveArrow@2x.png in Resources */,
 				67733F491DE6CF4200950B38 /* fileicon_link90@2x.png in Resources */,
-				67D92E991DD9540600C98E1B /* add_friend_icon_addgroup@3x.png in Resources */,
 				67733FE21DE6CF4200950B38 /* GroupPay_last_item_disable@2x.png in Resources */,
 				674186611DE5798C008A3B28 /* lxh_xiaohaha.gif in Resources */,
 				677341D41DE6CF4400950B38 /* play_btn_normal.png in Resources */,
@@ -10039,7 +10061,6 @@
 				674186131DE5798C008A3B28 /* lxh_deyidexiao@2x.png in Resources */,
 				67733CBA1DE6CF4000950B38 /* Action_Tap@2x.png in Resources */,
 				67733CD01DE6CF4000950B38 /* Address_Location@2x.png in Resources */,
-				67D92E9A1DD9540600C98E1B /* add_friend_icon_offical@2x.png in Resources */,
 				677340011DE6CF4200950B38 /* LbsIconGray@2x.png in Resources */,
 				677343E21DE6CF4600950B38 /* VoiceBtn_BlackHL@2x.png in Resources */,
 				67D92FEE1DD9540700C98E1B /* play-voice-icon-3.png in Resources */,
@@ -10365,7 +10386,6 @@
 				677342131DE6CF4400950B38 /* product_detail_arrow_press@2x.png in Resources */,
 				677341781DE6CF4300950B38 /* OpenDownPrgFront@2x.png in Resources */,
 				67733DBA1DE6CF4100950B38 /* bottomTipsIcon_Ear@2x.png in Resources */,
-				67D92E9B1DD9540600C98E1B /* add_friend_icon_offical@3x.png in Resources */,
 				67D92F421DD9540700C98E1B /* playButtonPlay@2x.png in Resources */,
 				677343F11DE6CF4600950B38 /* VoiceSearchFeedback007@2x.png in Resources */,
 				677344841DE6CF4700950B38 /* wechatoutwelcome@2x.png in Resources */,
@@ -10521,7 +10541,6 @@
 				674186691DE5798C008A3B28 /* lxh_xuyuan@2x.png in Resources */,
 				67733F301DE6CF4100950B38 /* ff_IconAdd@2x.png in Resources */,
 				67733E9C1DE6CF4100950B38 /* DefaultProfileHead_qq@2x.png in Resources */,
-				67D92E981DD9540600C98E1B /* add_friend_icon_addgroup@2x.png in Resources */,
 				67733E0E1DE6CF4100950B38 /* chat_migration_fake_qrcode@2x.png in Resources */,
 				6741866E1DE5798C008A3B28 /* lxh_zana.png in Resources */,
 				677342DA1DE6CF4500950B38 /* setting_News@2x.png in Resources */,
@@ -11123,6 +11142,7 @@
 				6773428C1DE6CF4400950B38 /* sandyLightR004@2x.png in Resources */,
 				677343311DE6CF4500950B38 /* sharemore_voipvoice@2x.png in Resources */,
 				677340A81DE6CF4300950B38 /* MessageCenter_NewNotify@2x.png in Resources */,
+				67F02A821E1E312200971531 /* navi_location_compass@2x.png in Resources */,
 				677342E21DE6CF4500950B38 /* setting_verifyPressed@2x.png in Resources */,
 				67733EC71DE6CF4100950B38 /* EmoticonTips@2x.png in Resources */,
 				677342641DE6CF4400950B38 /* ReceiverVoiceNodePlaying@2x.png in Resources */,
@@ -12086,7 +12106,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F03BD0C4D9491D69291FE82F /* [CP] Copy Pods Resources */ = {
@@ -12113,7 +12133,6 @@
 			files = (
 				674184B41DE577D5008A3B28 /* XQQFaceBtn.m in Sources */,
 				675085E81DF1083F00AF8587 /* YCXMenuItem.m in Sources */,
-				67E86ABC1DE2C74A000C855B /* QNConfig.m in Sources */,
 				67E6C6DE1DED1CDF004B050B /* XQQDetailLocationController.m in Sources */,
 				67C310A71DF9320400A667AB /* XQQEssenceToobar.m in Sources */,
 				674184AE1DE576DD008A3B28 /* XQQFaceBigView.m in Sources */,
@@ -12124,11 +12143,10 @@
 				6764711A1DD9BA6300C743B1 /* XQQUtility.m in Sources */,
 				6785C8D61DDB03DB00145C26 /* XQQMessageTool.m in Sources */,
 				67CDE6C01DDD81B3006FFBEE /* XQQAddressCell.m in Sources */,
+				67A99B051E14B7B00061DAAE /* QNHttpManager.m in Sources */,
 				67BA98761DD947E800529384 /* XQQAddressViewController.m in Sources */,
 				67CDE6C41DDDA735006FFBEE /* Reachability.m in Sources */,
 				67C3109E1DF92FC000A667AB /* NSCalendar+XQQExtension.m in Sources */,
-				67E86ABF1DE2C74A000C855B /* QNUrlSafeBase64.m in Sources */,
-				67E86AC01DE2C74A000C855B /* GTMBase64.m in Sources */,
 				67C310801DF9084B00A667AB /* XQQDiscoverFiveController.m in Sources */,
 				674FAB8A1DDEED6C00BF0C41 /* JSONKit.m in Sources */,
 				67C310B91DF9352A00A667AB /* NSObject+XQQExtension.m in Sources */,
@@ -12136,21 +12154,24 @@
 				674FAB841DDEDC1700BF0C41 /* XQQPersonModel.m in Sources */,
 				67B2FDA31DDC5B95009446C1 /* XQQMessageViewController.m in Sources */,
 				67529F441DE7DED1009195D7 /* EMAudioRecorderUtil.m in Sources */,
-				67E86ABB1DE2C74A000C855B /* QNAsyncRun.m in Sources */,
 				67BA982D1DD944EE00529384 /* AppDelegate.m in Sources */,
 				675085F11DF151F000AF8587 /* XQQGroupTopScrollView.m in Sources */,
 				67C310B01DF9330200A667AB /* XQQEssenceVideoView.m in Sources */,
+				67A99B0A1E14B7B00061DAAE /* QNFormUpload.m in Sources */,
 				67C3108C1DF92E6100A667AB /* XQQAPIClient.m in Sources */,
 				67C3106D1DF9066600A667AB /* XQQScrollMenuView.m in Sources */,
 				67C310951DF92F1400A667AB /* XQQCommentModel.m in Sources */,
+				67A99B0C1E14B7B00061DAAE /* QNUploadManager.m in Sources */,
 				67529F451DE7DED1009195D7 /* EMCDDeviceManager+Media.m in Sources */,
 				6785C8CA1DDAB4EC00145C26 /* XQQMeFirstCell.m in Sources */,
-				67E86AC91DE2C74A000C855B /* QNUploadManager.m in Sources */,
+				67A99B0B1E14B7B00061DAAE /* QNResumeUpload.m in Sources */,
 				67C310741DF9081C00A667AB /* XQQDiscoverOneController.m in Sources */,
 				67529F471DE7DED1009195D7 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				67BA986F1DD9478200529384 /* MainViewController.m in Sources */,
+				67A99B091E14B7B00061DAAE /* QNFileRecorder.m in Sources */,
 				6785C8C71DDAADBD00145C26 /* XQQMeTableViewCell.m in Sources */,
 				670776E21DE53279008113F8 /* XQQChatInputView.m in Sources */,
+				67A99B041E14B7B00061DAAE /* QNDns.m in Sources */,
 				67BA987F1DD9489100529384 /* XQQManager.m in Sources */,
 				674184AB1DE5762E008A3B28 /* XQQAllFaceView.m in Sources */,
 				6773346C1DE6C98700950B38 /* UIImage+XQQResizing.m in Sources */,
@@ -12160,17 +12181,16 @@
 				67D930E41DD95E6A00C98E1B /* UIView+XQQAdd.m in Sources */,
 				6753BCAF1DEEB54300F265B1 /* XQQContentView.m in Sources */,
 				67BA98701DD9478200529384 /* XQQNavigationController.m in Sources */,
-				67E86ACA1DE2C74A000C855B /* QNUploadOption.m in Sources */,
-				67E86ABD1DE2C74A000C855B /* QNCrc32.m in Sources */,
+				671B43351E138B55008F3441 /* XQQSendAddInfoController.m in Sources */,
 				67CDE6BA1DDD46EC006FFBEE /* XQQAddFriendController.m in Sources */,
 				672C79581DEBFA2A00B5EA8E /* XQQOtherBtn.m in Sources */,
 				67C3108F1DF92EC200A667AB /* XQQEssenceModel.m in Sources */,
 				67B2FDA01DDC5B61009446C1 /* XQQConversationCell.m in Sources */,
 				6785C8D91DDB04DF00145C26 /* XQQDataManager.m in Sources */,
+				67A99AFD1E14B7B00061DAAE /* QiniuPutPolicy.m in Sources */,
 				67E86A4C1DE2C185000C855B /* XQQQIniuTool.m in Sources */,
 				67E86ACD1DE2C97E000C855B /* UIImage-Extensions.m in Sources */,
 				677334691DE6C24B00950B38 /* XQQChatBtn.m in Sources */,
-				67E86AC81DE2C74A000C855B /* QNResumeUpload.m in Sources */,
 				6723D21D1DFE95D200D09E86 /* XQQRouteAnnotation.m in Sources */,
 				67C3109B1DF92F8800A667AB /* NSDate+XQQExtension.m in Sources */,
 				67CDE6C71DDDADEB006FFBEE /* XQQFriendDetailController.m in Sources */,
@@ -12184,13 +12204,13 @@
 				6785C8CD1DDAE1DF00145C26 /* XQQMeSetViewController.m in Sources */,
 				67C310831DF9085900A667AB /* XQQDiscoverSixController.m in Sources */,
 				67B2FDAD1DDC5C6A009446C1 /* XQQChatModel.m in Sources */,
-				67E86AC41DE2C74A000C855B /* QNSessionManager.m in Sources */,
+				67A99B031E14B7B00061DAAE /* GTMBase64.m in Sources */,
+				67A99B061E14B7B00061DAAE /* QNResponseInfo.m in Sources */,
 				6777A5471DFFEDCB001C8C99 /* XQQBaiduMapTool.m in Sources */,
 				6798BB3D1DF6BDDA00712885 /* XQQLookGroupCell.m in Sources */,
-				67E86AC51DE2C74A000C855B /* QNUserAgent.m in Sources */,
-				67E86AC21DE2C74A000C855B /* QNHttpManager.m in Sources */,
 				674FAB7B1DDEAA6800BF0C41 /* XQQDetailCell.m in Sources */,
 				67C310A41DF931AD00A667AB /* XQQEssenceTableViewCell.m in Sources */,
+				67A99B001E14B7B00061DAAE /* QNCrc32.m in Sources */,
 				67B2FDB71DDC5D5F009446C1 /* XQQDiscoverViewController.m in Sources */,
 				67C310861DF9086700A667AB /* XQQDiscoverSevenController.m in Sources */,
 				674184B11DE57763008A3B28 /* XQQPopView.m in Sources */,
@@ -12198,19 +12218,22 @@
 				674FAB811DDEDA7900BF0C41 /* XQQPersionCell.m in Sources */,
 				674184A51DE5747C008A3B28 /* XQQFaceSmallView.m in Sources */,
 				675085EB1DF113BD00AF8587 /* XQQAddGroupController.m in Sources */,
+				6703734A1E1F30C400FE74AE /* XQQLocationTypeView.m in Sources */,
+				67A99B071E14B7B00061DAAE /* QNSessionManager.m in Sources */,
 				67529F551DE816B5009195D7 /* XQQVoicePlayAnimationTool.m in Sources */,
-				67E86AC31DE2C74A000C855B /* QNResponseInfo.m in Sources */,
 				67529F491DE7DED1009195D7 /* EMCDDeviceManagerBase.m in Sources */,
 				675085EE1DF142AC00AF8587 /* XQQGroupFriendCell.m in Sources */,
 				67529F1D1DE7DC6E009195D7 /* UITextView+XQQExtension.m in Sources */,
+				67A99AFF1E14B7B00061DAAE /* QNConfig.m in Sources */,
 				6777A5291DFFC895001C8C99 /* XQQRouteViewController.mm in Sources */,
+				67A99B021E14B7B00061DAAE /* QNUrlSafeBase64.m in Sources */,
 				675085E71DF1083F00AF8587 /* YCXMenu.m in Sources */,
+				67A99AFE1E14B7B00061DAAE /* QNAsyncRun.m in Sources */,
 				67529F4B1DE7DED1009195D7 /* wav.mm in Sources */,
+				67A99B0D1E14B7B00061DAAE /* QNUploadOption.m in Sources */,
 				67C310921DF92EE300A667AB /* XQQEssenceFrameModel.m in Sources */,
 				677482E41DE3E19200D8E2CB /* XQQFriendModel.m in Sources */,
-				67E86AC61DE2C74A000C855B /* QNFileRecorder.m in Sources */,
 				6798BB3A1DF6B8D200712885 /* XQQLookGroupController.m in Sources */,
-				67E86AC71DE2C74A000C855B /* QNFormUpload.m in Sources */,
 				67EED1E21DDA925A00597AAA /* XQQToastTool.m in Sources */,
 				67C310701DF9068C00A667AB /* XQQScrollBtn.m in Sources */,
 				67C310B61DF934C600A667AB /* XQQRefreshNormalHeader.m in Sources */,
@@ -12222,19 +12245,20 @@
 				67529F461DE7DED1009195D7 /* EMCDDeviceManager+Microphone.m in Sources */,
 				67529F431DE7DED1009195D7 /* EMAudioPlayerUtil.m in Sources */,
 				67C310891DF92C9D00A667AB /* UIBarButtonItem+XQQExtension.m in Sources */,
+				67A99B081E14B7B00061DAAE /* QNUserAgent.m in Sources */,
 				67C310771DF9082800A667AB /* XQQDiscoverTwoController.m in Sources */,
 				674184A21DE573DF008A3B28 /* XQQFaceModel.m in Sources */,
 				67B2FD931DDC5325009446C1 /* XQQFrindStatesTool.m in Sources */,
-				67E86ABA1DE2C74A000C855B /* QiniuPutPolicy.m in Sources */,
 				67529F521DE7E27E009195D7 /* XQQVoiceAnimationView.m in Sources */,
 				67D9308F1DD9556500C98E1B /* XQQMeViewController.m in Sources */,
 				677334661DE6C22300950B38 /* XQQChatCell.m in Sources */,
-				67E86AC11DE2C74A000C855B /* QNDns.m in Sources */,
+				671B43321E135835008F3441 /* XQQAddInfoController.m in Sources */,
 				67C310981DF92F2300A667AB /* XQQCommentUserModel.m in Sources */,
 				6741867D1DE57FEE008A3B28 /* XQQChatOtherView.m in Sources */,
+				67A99B011E14B7B00061DAAE /* QNEtag.m in Sources */,
 				67C310B31DF9334300A667AB /* XQQProgrossView.m in Sources */,
+				67937AB31E12550200441967 /* XQQSearchCell.m in Sources */,
 				67E6C6D71DED1944004B050B /* XQQChatJumpTool.m in Sources */,
-				67E86ABE1DE2C74A000C855B /* QNEtag.m in Sources */,
 				67529F481DE7DED1009195D7 /* EMCDDeviceManager+Remind.m in Sources */,
 				67B2FDAA1DDC5C55009446C1 /* XQQChatViewController.m in Sources */,
 				67E86A491DE29841000C855B /* XQQUserInfoTool.m in Sources */,
@@ -12341,7 +12365,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = XQQChatProj/XQQChatProj.entitlements;
-				DEVELOPMENT_TEAM = DXV95ACF77;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -12357,8 +12382,10 @@
 					"$(PROJECT_DIR)/XQQChatProj/Classes/3rd/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/XQQChatProj/Classes/3rd/VoiceConvert/opencore-amrwb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UIP.XQQChatProj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uipower.XQQChatProj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -12370,7 +12397,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = XQQChatProj/XQQChatProj.entitlements;
-				DEVELOPMENT_TEAM = DXV95ACF77;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -12386,8 +12414,10 @@
 					"$(PROJECT_DIR)/XQQChatProj/Classes/3rd/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/XQQChatProj/Classes/3rd/VoiceConvert/opencore-amrwb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UIP.XQQChatProj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uipower.XQQChatProj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

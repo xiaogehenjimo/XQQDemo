@@ -22,6 +22,9 @@ typedef void(^completeBlock) (NSArray * array,NSError * error);
 /*block方式获取所有好友的个人信息*/
 - (void)getFriendPersionInfo:(NSArray*)list
                     complete:(void(^)(NSArray *array, NSError *error))complete;
+/*根据昵称查询用户信息*/
+- (void)getUserInfoWithNickName:(NSString*)nickName
+                       complete:(void(^)(NSArray *array, NSError *error))complete;
 /*获取好友的个人信息*/
 - (void)getfriendPersionInfo:(NSArray*)list;
 /*获取某个好友的信息*/
