@@ -199,12 +199,14 @@
     }];
 }
 
+/** 刷新表格 */
 - (void)refreshTableView{
     [self.addressTabelView reloadData];
     if (self.addressTabelView.mj_footer.isRefreshing) {
         [self.addressTabelView.mj_footer endRefreshing];
     }
 }
+
 - (void)startGeocodesearchWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
     //[self.addressTabelView makeToastActivity];
@@ -289,7 +291,7 @@
         //发送第一条位置
         _sendModel = self.addressDataArr[0];
     }
-    /*截图*/
+    /** 地图截图 */
     //UIImage * tmpLocation =  [self.mapView takeSnapshot:CGRectMake(self.centerImageView.center.x - 100, self.centerImageView.center.y-100, 200, 200)];
     UIImage * tmpLocation = [self.mapView takeSnapshot];
     if (self.delegate && [self.delegate respondsToSelector:@selector(sendMyLocationWithLocationModel:AndLocationImage:)]) {
@@ -303,7 +305,6 @@
     //移动地图的中心点到当前的定位点
     [self.mapView setCenterCoordinate:self.userLocation animated:YES];
 }
-
 
 #pragma mark - UITabelViewDelegate
 
@@ -348,6 +349,7 @@
 }
 
 #pragma mark - setter&getter
+
 - (UIView *)headView{
     if (!_headView) {
         _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];

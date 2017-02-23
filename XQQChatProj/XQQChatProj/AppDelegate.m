@@ -165,9 +165,6 @@
     self.window.rootViewController = loginVC;
 }
 
-
-
-
 /*获取到当前登录的个人信息会走这个方法*/
 - (void)getPersonInfo:(NSNotification*)notic{
     NSArray * infoArr = (NSArray*)notic.object;

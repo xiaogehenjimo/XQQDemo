@@ -46,4 +46,20 @@
 /*更新某个好友信息*/
 - (void)updateFriendInfo:(XQQFriendModel*)model;
 
+
+#pragma mark - 地图页面查询
+/**创建历史查询记录表*/
+- (void)createHistorySearchTable;
+/**获取所有搜索历史*/
+- (NSArray*)searchSearchHistory;
+/**插入一条搜索记录到数据库*/
+- (void)insertSearchHistory:(NSDictionary*)dict;
+/*查询数据库是否有这条搜索记录*/
+- (BOOL)searchHistoryWithSearchName:(NSString*)searchName;
+/**查询某个搜索*/
+- (NSDictionary*)searchSomeHistoryWithSearchName:(NSString*)searchName;
+/*更新某个历史搜索*/
+- (void)updateSearchWithSearchName:(NSString*)searchName
+                          infoDict:(NSDictionary*)infoDict;
+
 @end

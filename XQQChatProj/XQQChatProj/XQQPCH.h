@@ -28,9 +28,20 @@
 #define XQQRandomColor          XQQColor(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255))
 #define XQQGrayColor(r)  XQQColor((r),(r),(r))
 #define XQQBGColor       XQQGrayColor(214)
+#define XQQSingleColor(r)  XQQColor((r),(r),(r))
+
 
 #define iphoneWidth  [UIScreen mainScreen].bounds.size.width
 #define iphoneHeight [UIScreen mainScreen].bounds.size.height
+
+
+
+//地图搜索存储字段名
+#define search_name @"searchName"
+#define search_type @"searchType"
+#define search_time @"searchTime"
+//时间格式
+#define xqq_timeFormat @"yyyy-MM-dd HH:mm:ss"
 
 
 
