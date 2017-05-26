@@ -20,10 +20,10 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - BaiduMapKit (3.2)
-  - BmobSDK (2.0.1)
+  - BaiduMapKit (3.3.1)
+  - BmobSDK (2.1.7)
   - DACircularProgress (2.3.1)
-  - EaseMobSDKFull (2.2.9)
+  - EaseMobSDKFull (2.3.2)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -31,6 +31,13 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
+  - MSWeakTimer (1.1.0)
+  - MWPhotoBrowser (1.2.1):
+    - DACircularProgress
+    - MBProgressHUD
+    - PSTCollectionView (~> 1.2)
+    - SDWebImage (~> 3.5)
+  - PSTCollectionView (1.2.3)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -46,33 +53,47 @@ DEPENDENCIES:
   - BaiduMapKit
   - BmobSDK
   - DACircularProgress
-  - EaseMobSDKFull (~> 2.2.7)
+  - EaseMobSDKFull (from `https://github.com/easemob/sdk-ios-cocoapods-integration.git`)
   - FMDB
   - Masonry
   - MBProgressHUD (~> 1.0.0)
   - MJExtension
   - MJRefresh
+  - MSWeakTimer (~> 1.1.0)
+  - MWPhotoBrowser
   - SDWebImage (~> 3.8)
   - SVProgressHUD
   - YYKit
   - ZFPlayer (~> 2.0.0)
 
+EXTERNAL SOURCES:
+  EaseMobSDKFull:
+    :git: https://github.com/easemob/sdk-ios-cocoapods-integration.git
+
+CHECKOUT OPTIONS:
+  EaseMobSDKFull:
+    :commit: 988e9f33e408e50981d45f971a14681815cd517f
+    :git: https://github.com/easemob/sdk-ios-cocoapods-integration.git
+
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  BaiduMapKit: c23aee47be89b2b939a92acfd06627114e897662
-  BmobSDK: 315013af15af31697a3b92cad2c74effed849b85
+  BaiduMapKit: 9e8ff80bbcfb8f96b4a58b2844d728590dac90ca
+  BmobSDK: 23cbfbde2a7cfaeb0c8a946953a266fe5211e7f6
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  EaseMobSDKFull: 0e4d9c29f3c310b3d2b9f6033c24bfb9a053192f
+  EaseMobSDKFull: 8649d2f2c9d37507baf4834a622bcbf0a982877f
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
+  MWPhotoBrowser: 7087b4c828297ef34ff2b0892c8e967034a86842
+  PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: ff74ca27faa41e8f6df42ea038c951353246f97f
 
-PODFILE CHECKSUM: d54f0a80381d98841b5b0b7b43c320c3d3c17fb7
+PODFILE CHECKSUM: 262d40bacdbf6c6fda2e6c4c931dc1c51f7dee96
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.1

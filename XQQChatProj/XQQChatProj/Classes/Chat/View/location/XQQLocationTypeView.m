@@ -21,13 +21,12 @@
 
 @implementation XQQLocationTypeView
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame titleArr:(NSArray *)titleArr{
     
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = XQQGrayColor(251);
         self.layer.borderWidth = .2f;
         self.layer.borderColor = [UIColor grayColor].CGColor;
-        NSArray * titleArr = @[@"全部",@"写字楼",@"小区",@"学校"];
         UIButton * firstBtn = nil;
         for (NSInteger i = 0; i < 4; i ++) {
             CGFloat width = (frame.size.width - 5 * boardWidth)/4.0;

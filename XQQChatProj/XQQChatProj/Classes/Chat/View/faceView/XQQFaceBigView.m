@@ -38,9 +38,9 @@
     _scrollView.pagingEnabled = YES;
     _scrollView.delegate = self;
     [self addSubview:_scrollView];
-    NSInteger pageCount = (faceArr.count - 1) / 21 + 1;
+    NSInteger pageCount = (faceArr.count - 1) / 20 + 1;
     //拆分数组
-    NSArray * allSubArr = [self splitArray:faceArr withSubSize:21];
+    NSArray * allSubArr = [self splitArray:faceArr withSubSize:20];
     //allFaceView
     for (NSInteger i = 0; i < pageCount; i ++) {
         CGFloat viewX = i * iphoneWidth;

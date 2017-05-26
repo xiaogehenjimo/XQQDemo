@@ -6,7 +6,7 @@ pod 'MJExtension'
 pod 'Masonry'
 pod 'FMDB'
 pod 'BmobSDK'
-pod 'EaseMobSDKFull', '~>2.2.7'
+
 pod 'BaiduMapKit'
 pod 'MJRefresh'
 pod 'MBProgressHUD', '~> 1.0.0'
@@ -14,5 +14,7 @@ pod 'SVProgressHUD'
 pod 'AFNetworking', '~> 2.6.2'
 pod "DACircularProgress"
 target 'XQQChatProj' do
-
+pod 'MSWeakTimer', '~> 1.1.0'
+pod 'EaseMobSDKFull', :git => 'https://github.com/easemob/sdk-ios-cocoapods-integration.git'
+pod "MWPhotoBrowser"
 end

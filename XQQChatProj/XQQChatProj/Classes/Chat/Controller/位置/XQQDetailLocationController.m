@@ -203,7 +203,7 @@
         //判断是否有历史数据
         
         NSArray * history = [[XQQDataManager sharedDataManager] searchSearchHistory];
-        if (history.count > 0) {
+        if (1) {
             if (self.bottomSearchTableView) {
                 [self.bottomSearchTableView removeFromSuperview];
                 self.bottomSearchTableView = nil;
@@ -213,8 +213,6 @@
             self.bottomSearchTableView.dataArr = history;
             self.bottomSearchTableView.delegate = self;
             [self.view addSubview:self.bottomSearchTableView];
-        }else{
-            NSLog(@"不存在历史搜索消息");
         }
     }];
 }
@@ -289,9 +287,15 @@
         routeVC.routeType =  XQQRouteTypeDrive;
         [self.navigationController pushViewController:routeVC animated:YES];
     }];
+    
+    UIAlertAction * cancelAct = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    //修改取消为红色
+    [cancelAct setValue:[UIColor redColor] forKey:@"titleTextColor"];
+    
     [alert addAction:driveAct];
     [alert addAction:workAct];
     [alert addAction:busAct];
+    [alert addAction:cancelAct];
     [self presentViewController:alert animated:YES completion:nil];
 }
 /**

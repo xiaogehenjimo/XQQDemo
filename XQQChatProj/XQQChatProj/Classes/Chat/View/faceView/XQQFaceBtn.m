@@ -24,6 +24,8 @@
     if ([model.png isEqualToString:@""]||model.png == nil) {
         [self setTitle:model.code.emoji forState:UIControlStateNormal];
         
+    }else if ([model.png isEqualToString:@"DeleteEmoticonBtn"]){//删除按钮
+        [self setImage:[UIImage imageNamed:@"DeleteEmoticonBtn"] forState:UIControlStateNormal];
     }else{
         [self setImage:[UIImage imageNamed:model.png] forState:UIControlStateNormal];
     }

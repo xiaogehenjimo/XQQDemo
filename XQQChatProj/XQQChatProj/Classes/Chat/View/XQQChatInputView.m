@@ -12,7 +12,7 @@
 #import "XQQVoiceAnimationView.h"
 #import "XQQChatOtherView.h"
 #import "XQQChatLocationController.h"
-
+#import "XQQEmotionAttachment.h"
 
 #define inputBoardWidth 5
 
@@ -37,7 +37,13 @@
     if (self = [super initWithFrame:frame]) {
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+        
+        //添加表情按钮点击通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelFace:) name:@"face" object:nil];
+        //表情删除按钮点击
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(faceDeleteBtnPress) name:@"KDeleteBtnPressNotificationName" object:nil];
+        
+        
         self.backgroundColor = XQQColor(220, 225, 225);
         //左侧按钮
         _leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(inputBoardWidth, inputBoardWidth, 40, 40)];
@@ -86,14 +92,26 @@
         //创建表情view
         __weak typeof(self) weakSelf = self;
         _faceView = [[XQQFaceView alloc]initWithFrame:CGRectMake(0, iphoneHeight - 250, iphoneWidth, 250)];
+        
         _faceView.bottomFaceTypeBtnPress = ^(NSInteger btnIndex){
             [weakSelf bottomFaceTypeBtnPress:btnIndex];
+        };
+        //表情下方的发送按钮点击
+        _faceView.sendFaceBtnPressBlock = ^(){
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(chatInputViewDidEndEdit:)]) {
+        
+                NSString * outPutStr = [weakSelf fullText];
+                
+                [weakSelf.delegate chatInputViewDidEndEdit:outPutStr];
+                
+            }
+            weakSelf.inputText.text = @"";
+            
         };
         //更多View
         _otherView = [[XQQChatOtherView alloc]initWithFrame:_faceView.frame];
         _otherView.delegate = self;
-        
-        
         
         
     }
@@ -109,16 +127,29 @@
  *  @param notice 传递的值
  */
 - (void)didSelFace:(NSNotification*)notice{
+    
     XQQFaceModel * model = notice.object;
-    NSTextAttachment *  Attachment = [[NSTextAttachment alloc]init];
-    if ([model.png isEqualToString:@""]||model.png == nil) {
-        [self.inputText insertText:model.code.emoji];
-    }else{
-        Attachment.image = [UIImage imageNamed:model.png];
-        NSAttributedString * str = [NSAttributedString attributedStringWithAttachment:Attachment];
-        [self.inputText insertAttributedText:str];
-    }
+    
+    [self insertEmotion:model];
+    
+//    NSTextAttachment *  Attachment = [[NSTextAttachment alloc]init];
+//    if ([model.png isEqualToString:@""]||model.png == nil) {
+//        [self.inputText insertText:model.code.emoji];
+//    }else{
+//        Attachment.image = [UIImage imageNamed:model.png];
+//        NSAttributedString * str = [NSAttributedString attributedStringWithAttachment:Attachment];
+//        [self.inputText insertAttributedText:str];
+//    }
 }
+
+/** 删除表情按钮点击 */
+- (void)faceDeleteBtnPress{
+    //删掉输入框中的表情
+    
+    [self.inputText deleteBackward];
+    
+}
+
 
 /*表情种类按钮点击*/
 - (void)bottomFaceTypeBtnPress:(NSInteger)btnTag{
@@ -281,7 +312,32 @@
             break;
         case 1:{
             //拍摄
-            
+            UIViewController * vc = (UIViewController*)self.delegate;
+            if ([UIImagePickerController isSourceTypeAvailable:(UIImagePickerControllerSourceTypeCamera)]) {
+                
+                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                
+                picker.delegate = self;
+                
+                picker.allowsEditing = YES; //是否可编辑
+                
+                //摄像头
+                
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                
+                [vc.navigationController presentViewController:picker animated:YES completion:nil];
+                
+            }else{
+                
+                //如果没有提示用户
+                
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"错误!" message:@"你没有摄像头!"preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction * ac = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
+                [alert addAction:ac];
+               
+                [vc.navigationController presentViewController:alert animated:YES completion:nil];
+            }
+                
         }
             break;
         case 2:{
@@ -315,7 +371,11 @@
             return;
         }else{
             if (self.delegate && [self.delegate respondsToSelector:@selector(chatInputViewDidEndEdit:)]) {
-                [self.delegate chatInputViewDidEndEdit:[textView.text substringToIndex:textView.text.length - 1]];
+                
+                NSString * outPutStr = [self fullText];
+                
+                [self.delegate chatInputViewDidEndEdit:[outPutStr substringToIndex:outPutStr.length-1]];
+                
             }
         }
         textView.text = @"";
@@ -355,6 +415,56 @@
 }
 
 #pragma mark - setter&getter
+
+
+/** 插入一个表情到输入框 */
+- (void)insertEmotion:(XQQFaceModel *)emotion
+{
+    if (emotion.code) {
+        // insertText : 将文字插入到光标所在的位置
+        [self.inputText insertText:emotion.code.emoji];
+    } else if (emotion.png) {
+        // 加载图片
+        XQQEmotionAttachment *attch = [[XQQEmotionAttachment alloc] init];
+        
+        // 传递模型
+        attch.emotion = emotion;
+        
+        // 设置图片的尺寸
+        CGFloat attchWH = self.inputText.font.lineHeight;
+        attch.bounds = CGRectMake(0, -4, attchWH, attchWH);
+        
+        // 根据附件创建一个属性文字
+        NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attch];
+        
+        // 插入属性文字到光标位置
+        [self.inputText insertAttributedText:imageStr settingBlock:^(NSMutableAttributedString *attributedText) {
+            // 设置字体
+            [attributedText addAttribute:NSFontAttributeName value:self.inputText.font range:NSMakeRange(0, attributedText.length)];
+        }];
+    }
+}
+
+/** 获取输入框的文字 */
+- (NSString *)fullText
+{
+    NSMutableString *fullText = [NSMutableString string];
+    
+    // 遍历所有的属性文字（图片、emoji、普通文字）
+    [self.inputText.attributedText enumerateAttributesInRange:NSMakeRange(0, self.inputText.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+        // 如果是图片表情
+        XQQEmotionAttachment *attch = attrs[@"NSAttachment"];
+        if (attch) { // 图片
+            [fullText appendString:[NSString stringWithFormat:@"%@",attch.emotion.chs]];
+        } else { // emoji、普通文本
+            // 获得这个范围内的文字
+            NSAttributedString *str = [self.inputText.attributedText attributedSubstringFromRange:range];
+            [fullText appendString:str.string];
+        }
+    }];
+    
+    return fullText;
+}
 
 //设置按钮图片
 - (void)setBtnImage:(NSString*)imageName button:(UIButton*)button{

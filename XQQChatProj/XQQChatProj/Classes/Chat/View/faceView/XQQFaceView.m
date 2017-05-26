@@ -11,9 +11,12 @@
 #import "XQQFaceSmallView.h"
 #import "XQQFaceBigView.h"
 
+
+#define sendFaceBtnWidth  70 //发送表情按钮的宽
+
 @interface XQQFaceView ()<UIScrollViewDelegate>
 /*下方的类型数组*/
-@property(nonatomic,strong)NSArray * typeArr;
+@property(nonatomic, strong)  NSArray  *  typeArr;
 /*pageControl*/
 @property(nonatomic, strong)  UIPageControl  *  pageControl;
 /*装滚动视图的数组*/
@@ -129,16 +132,28 @@
 
 /*创建下方的scrollView*/
 - (void)createBottomScrollView{
+    
     CGFloat bottomScrollViewX = 0;
     CGFloat bottomScrollViewY = self.frame.size.height - 30;
-    CGFloat bottomScrollViewW = iphoneWidth;
+    CGFloat bottomScrollViewW = iphoneWidth - sendFaceBtnWidth;
     CGFloat bottomScrollViewH = 30;
     self.bottomScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(bottomScrollViewX, bottomScrollViewY, bottomScrollViewW, bottomScrollViewH)];
+    //创建发送按钮
+    UIButton * sendFaceBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.bottomScrollView.xqq_right, bottomScrollViewY, sendFaceBtnWidth, bottomScrollViewH)];
+    
+    [sendFaceBtn setTitle:@"发送" forState:UIControlStateNormal];
+    
+    [sendFaceBtn setTitleColor:XQQColor(84, 167, 54) forState:UIControlStateNormal];
+    
+    sendFaceBtn.backgroundColor = XQQSingleColor(242);
+    
+    [sendFaceBtn addTarget:self action:@selector(sendFaceBtnDidPress) forControlEvents:UIControlEventTouchUpInside];
+    
     /*创建按钮*/
     NSArray * nameArr = @[@"默认",@"浪小花",@"emoji"];
     _typeArr = nameArr;
     for (NSInteger i = 0; i < nameArr.count; i ++) {
-        CGFloat faceTypeBtnW = iphoneWidth / 4;
+        CGFloat faceTypeBtnW = bottomScrollViewW / 4;
         CGFloat faceTypeBtnX = i * faceTypeBtnW;
         CGFloat faceTypeBtnY = 0;
         CGFloat faceTypeBtnH = 30;
@@ -156,10 +171,20 @@
         [faceTypeBtn addTarget:self action:@selector(faceTypeBtnDidPress:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomScrollView addSubview:faceTypeBtn];
     }
-    self.bottomScrollView.contentSize = CGSizeMake(nameArr.count * iphoneWidth/4, 0);
+    self.bottomScrollView.contentSize = CGSizeMake(nameArr.count * bottomScrollViewW/4, 0);
     self.bottomScrollView.showsVerticalScrollIndicator = NO;
     self.bottomScrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:self.bottomScrollView];
+    [self addSubview:sendFaceBtn];
+}
+
+#pragma mark - activity
+
+/** 下方发送表情按钮点击 */
+- (void)sendFaceBtnDidPress{
+    if (self.sendFaceBtnPressBlock) {
+        self.sendFaceBtnPressBlock();
+    }
 }
 
 /*下方类型的按钮点击*/
@@ -234,7 +259,7 @@
                 }
             }
             if (currentIndex > 3) {
-                self.bottomScrollView.contentOffset = CGPointMake(iphoneWidth/4 *(currentIndex - 3), 0);
+                self.bottomScrollView.contentOffset = CGPointMake((iphoneWidth - sendFaceBtnWidth)/4 *(currentIndex - 3), 0);
             }else if(currentIndex < 1){
                 self.bottomScrollView.contentOffset = CGPointMake(0, 0);
             }

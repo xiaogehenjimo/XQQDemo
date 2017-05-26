@@ -13,7 +13,7 @@
 #import "XQQVoicePlayAnimationTool.h"
 
 
-@interface XQQChatViewController ()<chatInputViewDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,IEMChatProgressDelegate>
+@interface XQQChatViewController ()<chatInputViewDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,IEMChatProgressDelegate,MWPhotoBrowserDelegate>
 /** tableView */
 @property(nonatomic, strong)  UITableView  *  chatTableView;
 /** 数据源数组 */
@@ -28,41 +28,41 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //拉取这个好友的信息
-    [[XQQUserInfoTool sharedManager] getFriendInfo:_model.userName];
+    
+    [[XQQUserInfoTool sharedManager] getOneFriendInfo:_model.userName complete:^(NSArray *array, NSError *error) {
+        if (!array.count) {
+            return ;
+        }
+        BmobObject * info = array[0];
+        NSString * iconURL = [info objectForKey:@"iconURL"];
+        _model.iconImgaeURL = iconURL;
+        //取值
+        NSString * nickName = [info objectForKey:@"nickName"];
+        NSString * userName = [info objectForKey:@"userName"];
+        NSNumber * number = [info objectForKey:@"isOnline"];
+        BOOL isOnline = number.boolValue;
+        
+        XQQFriendModel * model = [[XQQFriendModel alloc]init];
+        model.nickName = nickName;
+        model.userName = userName;
+        model.iconImgaeURL = iconURL;
+        model.isOnline = isOnline;
+        //更新数据库好友信息
+        [[XQQDataManager sharedDataManager] updateFriendInfo:model];
+    }];
     /*注册收到消息监听*/
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recieveMessage:) name:XQQNoticDidRecieveMessage object:nil];
-    //注册获取到好友个人信息监听
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didGetFriendInfo:) name:XQQNoticGetFriendInfo object:nil];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:XQQNoticDidRecieveMessage object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:XQQNoticGetFriendInfo object:nil];
+
     //如果页面退出还在播放语音 停止播放语音
     if ([[EMCDDeviceManager sharedInstance]isPlaying]) {
         [[EMCDDeviceManager sharedInstance] stopPlaying];
     }
-}
-
-/*获取到好友的个人信息*/
-- (void)didGetFriendInfo:(NSNotification*)notic{
-    BmobObject * info = notic.object[0];
-    NSString * iconURL = [info objectForKey:@"iconURL"];
-    _model.iconImgaeURL = iconURL;
-    //取值
-    NSString * nickName = [info objectForKey:@"nickName"];
-    NSString * userName = [info objectForKey:@"userName"];
-    NSNumber * number = [info objectForKey:@"isOnline"];
-    BOOL isOnline = number.boolValue;
-    
-    XQQFriendModel * model = [[XQQFriendModel alloc]init];
-    model.nickName = nickName;
-    model.userName = userName;
-    model.iconImgaeURL = iconURL;
-    model.isOnline = isOnline;
-    //更新数据库好友信息
-    [[XQQDataManager sharedDataManager] updateFriendInfo:model];
 }
 
 
@@ -184,24 +184,24 @@
 
 #pragma mark - MWPhotoBrowserDelegate
 
-//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
-//    return 1;
-//}
-//
-//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
-//    
-//    EMImageMessageBody *body = self.imageMessage.messageBodies[0];
-//    NSString *path = body.localPath;
-//    NSFileManager *fileMgr = [NSFileManager defaultManager];
-//    if ([fileMgr fileExistsAtPath:path]) {
-//        // 设置图片浏览器中的图片对象 (本地获取的)
-//        return [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:path]];
-//    }else{
-//        // 设置图片浏览器中的图片对象 (使用网络请求)
-//        path = body.remotePath;
-//        return [MWPhoto photoWithURL:[NSURL URLWithString:path]];
-//    }
-//}
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    return 1;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+    
+    EMImageMessageBody *body = self.imageMessage.messageBodies[0];
+    NSString *path = body.localPath;
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    if ([fileMgr fileExistsAtPath:path]) {
+        // 设置图片浏览器中的图片对象 (本地获取的)
+        return [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:path]];
+    }else{
+        // 设置图片浏览器中的图片对象 (使用网络请求)
+        path = body.remotePath;
+        return [MWPhoto photoWithURL:[NSURL URLWithString:path]];
+    }
+}
 
 #pragma mark - UITableViewDelegate
 

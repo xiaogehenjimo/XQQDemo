@@ -36,20 +36,39 @@
 }
 - (void)setDetailFaceArr:(NSArray *)detailFaceArr{
     _detailFaceArr = detailFaceArr;
-    for (NSInteger i = 0; i < detailFaceArr.count; i ++) {
-        XQQFaceModel * model = detailFaceArr[i];
+    
+    //增加一个删除按钮     //DeleteEmoticonBtn
+    
+    NSMutableArray * tempArr = detailFaceArr.mutableCopy;
+    
+    XQQFaceModel * deleteModel = [[XQQFaceModel alloc]init];
+    
+    deleteModel.png = @"DeleteEmoticonBtn";
+    
+    [tempArr addObject:deleteModel];
+    
+    for (NSInteger i = 0; i < tempArr.count; i ++) {
+        XQQFaceModel * model = tempArr[i];
         CGFloat x = i % KCount * (photoWH  + panding) + panding;
         CGFloat y = i / KCount * (photoWH  + 2*panding) + 1 * panding;
         XQQFaceBtn * button = [[XQQFaceBtn alloc]initWithFrame:CGRectMake(x, y, photoWH, photoWH)];
         button.model = model;
-        //添加长按手势
-        [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:)]];
         
-        [button addTarget:self action:@selector(buttonDidSel:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:i== tempArr.count -1?@selector(deleteBtnDidPress):@selector(buttonDidSel:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         [self.buttonArr addObject:button];
     }
+    //添加长按手势
+    [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:)]];
 }
+
+
+/** 删除按钮被点击了 */
+- (void)deleteBtnDidPress{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KDeleteBtnPressNotificationName" object:nil];
+}
+
+/** 表情按被点击 */
 - (void)buttonDidSel:(XQQFaceBtn*)faceBtn{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"face" object:faceBtn.model];
 }

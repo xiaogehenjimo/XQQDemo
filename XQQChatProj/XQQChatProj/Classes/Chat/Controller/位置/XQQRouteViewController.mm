@@ -21,6 +21,12 @@
 @property(nonatomic, strong)  BMKGeoCodeSearch  * searcher;
 /** 当前所在的城市 */
 @property(nonatomic, strong)  NSString  *  endCity;
+/** 存储大头针的数组 */
+@property (nonatomic, strong)  NSMutableArray  *  annotationArr;
+
+/** 当前大头针的索引 */
+@property (nonatomic, assign)  NSInteger   currentIndex;
+
 @end
 
 @implementation XQQRouteViewController
@@ -40,6 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentIndex = 0;
     _searcher =[[BMKGeoCodeSearch alloc]init];
     _searcher.delegate = self;
     //发起反向地理编码检索
@@ -151,6 +158,37 @@
     _locationService.delegate = self;
     [_locationService startUserLocationService];
     _routeSearch = [[BMKRouteSearch alloc]init];
+    //创建右侧下一步按钮
+    UIBarButtonItem * nextBtn = [[UIBarButtonItem alloc]initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextItemPress)];
+    UIBarButtonItem * prvieBtn = [[UIBarButtonItem alloc]initWithTitle:@"上一步" style:UIBarButtonItemStylePlain target:self action:@selector(preItemPress)];
+    self.navigationItem.rightBarButtonItems = @[nextBtn,prvieBtn];
+    //设置大头针的当前索引为0 起点
+    
+}
+
+#pragma mark - activity
+
+//下一步
+- (void)nextItemPress{
+    
+    if (_currentIndex == self.annotationArr.count) {
+        return;
+    }
+    _currentIndex ++ ;
+    
+    XQQRouteAnnotation * item = [self.annotationArr objectAtIndex:_currentIndex];
+    [self.mapView selectAnnotation:item animated:YES];
+}
+//上一步
+- (void)preItemPress{
+    
+    if (_currentIndex<=0) {
+        return;
+    }
+    _currentIndex--;
+    
+    XQQRouteAnnotation * item = [self.annotationArr objectAtIndex:_currentIndex];
+    [self.mapView selectAnnotation:item animated:YES];
 }
 
 #pragma mark - BMKLocationServiceDelegate
@@ -203,6 +241,7 @@
     [_mapView removeAnnotations:array];
     array = [NSArray arrayWithArray:_mapView.overlays];
     [_mapView removeOverlays:array];
+    [self.annotationArr removeAllObjects];
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKTransitRouteLine* plan = (BMKTransitRouteLine*)[result.routes objectAtIndex:0];
         // 计算路线方案中的路段数目
@@ -215,13 +254,15 @@
                 item.coordinate = plan.starting.location;
                 item.title = @"起点";
                 item.type = 0;
+                [self.annotationArr addObject:item];
                 [_mapView addAnnotation:item]; // 添加起点标注
-                
+                [_mapView selectAnnotation:item animated:YES];
             }else if(i==size-1){
                 XQQRouteAnnotation* item = [[XQQRouteAnnotation alloc]init];
                 item.coordinate = plan.terminal.location;
                 item.title = @"终点";
                 item.type = 1;
+                [self.annotationArr addObject:item];
                 [_mapView addAnnotation:item]; // 添加起点标注
             }
             XQQRouteAnnotation* item = [[XQQRouteAnnotation alloc]init];
@@ -229,7 +270,7 @@
             item.title = transitStep.instruction;
             item.type = 3;
             [_mapView addAnnotation:item];
-            
+            [self.annotationArr addObject:item];
             //轨迹点总数累计
             planPointCounts += transitStep.pointsCount;
         }
@@ -260,6 +301,7 @@
     [_mapView removeAnnotations:array];
     array = [NSArray arrayWithArray:_mapView.overlays];
     [_mapView removeOverlays:array];
+    [self.annotationArr removeAllObjects];
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKDrivingRouteLine* plan = (BMKDrivingRouteLine*)[result.routes objectAtIndex:0];
         // 计算路线方案中的路段数目
@@ -272,13 +314,15 @@
                 item.coordinate = plan.starting.location;
                 item.title = @"起点";
                 item.type = 0;
+                [self.annotationArr addObject:item];
                 [_mapView addAnnotation:item]; // 添加起点标注
-                
+                [_mapView selectAnnotation:item animated:YES];
             }else if(i==size-1){
                 XQQRouteAnnotation* item = [[XQQRouteAnnotation alloc]init];
                 item.coordinate = plan.terminal.location;
                 item.title = @"终点";
                 item.type = 1;
+                [self.annotationArr addObject:item];
                 [_mapView addAnnotation:item]; // 添加起点标注
             }
             //添加annotation节点
@@ -289,6 +333,7 @@
             item.type = 4;
             [_mapView addAnnotation:item];
             NSLog(@"%@   %@    %@", transitStep.entraceInstruction, transitStep.exitInstruction, transitStep.instruction);
+            [self.annotationArr addObject:item];
             //轨迹点总数累计
             planPointCounts += transitStep.pointsCount;
         }
@@ -330,6 +375,7 @@
     [_mapView removeAnnotations:array];
     array = [NSArray arrayWithArray:_mapView.overlays];
     [_mapView removeOverlays:array];
+    [self.annotationArr removeAllObjects];
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKWalkingRouteLine* plan = (BMKWalkingRouteLine*)[result.routes objectAtIndex:0];
         NSInteger size = [plan.steps count];
@@ -342,13 +388,15 @@
                 item.title = @"起点";
                 item.type = 0;
                 [_mapView addAnnotation:item]; // 添加起点标注
-                
+                [self.annotationArr addObject:item];
+                [_mapView selectAnnotation:item animated:YES];
             }else if(i==size-1){
                 XQQRouteAnnotation* item = [[XQQRouteAnnotation alloc]init];
                 item.coordinate = plan.terminal.location;
                 item.title = @"终点";
                 item.type = 1;
                 [_mapView addAnnotation:item]; // 添加起点标注
+                [self.annotationArr addObject:item];
             }
             //添加annotation节点
             XQQRouteAnnotation* item = [[XQQRouteAnnotation alloc]init];
@@ -357,7 +405,7 @@
             item.degree = transitStep.direction * 30;
             item.type = 4;
             [_mapView addAnnotation:item];
-            
+            [self.annotationArr addObject:item];
             //轨迹点总数累计
             planPointCounts += transitStep.pointsCount;
         }
@@ -574,6 +622,13 @@
     rect.size = BMKMapSizeMake(rbX - ltX, rbY - ltY);
     [_mapView setVisibleMapRect:rect];
     _mapView.zoomLevel = _mapView.zoomLevel - 0.3;
+}
+
+- (NSMutableArray *)annotationArr{
+    if (!_annotationArr) {
+        _annotationArr = @[].mutableCopy;
+    }
+    return _annotationArr;
 }
 
 - (void)dealloc{

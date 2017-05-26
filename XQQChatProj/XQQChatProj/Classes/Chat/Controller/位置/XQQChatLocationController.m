@@ -359,7 +359,8 @@
 
 - (XQQLocationTypeView *)bottomTypeView{
     if (!_bottomTypeView) {
-        _bottomTypeView = [[XQQLocationTypeView alloc]initWithFrame:CGRectMake(0, self.mapView.xqq_bottom, iphoneWidth, 50)];
+        NSArray * titleArr = @[@"全部",@"写字楼",@"小区",@"学校"];
+        _bottomTypeView = [[XQQLocationTypeView alloc]initWithFrame:CGRectMake(0, self.mapView.xqq_bottom, iphoneWidth, 50) titleArr:titleArr];
         //_bottomTypeView.backgroundColor = [UIColor yellowColor];
         _bottomTypeView.delegate = self;
     }

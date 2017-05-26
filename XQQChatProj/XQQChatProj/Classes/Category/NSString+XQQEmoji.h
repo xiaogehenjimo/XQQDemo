@@ -16,4 +16,16 @@
 - (NSString *)emoji;
 /*是否为emoji字符*/
 - (BOOL)isEmoji;
+
+
+
+
+/**
+ *  普通文字 --> 属性文字
+ *
+ *  @return 属性文字
+ */
+- (NSAttributedString *)attributedText;
+
+
 @end

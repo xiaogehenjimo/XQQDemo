@@ -27,4 +27,13 @@ typedef NS_ENUM(NSInteger,XQQLocationType){
 @property(nonatomic, weak)  id<typeButtonPressDelegate> delegate;
 
 
+/**
+ 创建类型view
+
+ @param frame frame
+ @param titleArr 需要传递的标题数组
+ @return self
+ */
+- (instancetype)initWithFrame:(CGRect)frame titleArr:(NSArray*)titleArr;
+
 @end

@@ -75,6 +75,7 @@
 #import <MBProgressHUD.h>
 #import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
+#import <MWPhotoBrowser.h>
 #import <MJExtension.h>
 #import "XQQUtility.h"
 #import "Toast+UIView.h"
@@ -99,6 +100,8 @@
 #import "XQQRefreshNormalHeader.h"
 #import "NSObject+XQQExtension.h"
 #import "XQQBaiduMapTool.h"
+#import "RegexKitLite.h"
+
 
 #endif
 
