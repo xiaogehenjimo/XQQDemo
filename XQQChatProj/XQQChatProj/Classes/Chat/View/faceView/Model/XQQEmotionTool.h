@@ -15,7 +15,7 @@
 + (NSArray *)defaultEmotions;
 + (NSArray *)lxhEmotions;
 + (NSArray *)emojiEmotions;
-
++ (NSArray *)pandaEmotions;
 /**
  *  通过表情描述找到对应的表情
  *

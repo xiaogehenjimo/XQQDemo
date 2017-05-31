@@ -32,7 +32,10 @@ static NSMutableArray *_recentEmotions;
     for (XQQFaceModel *emotion in lxhs) {
         if ([emotion.chs isEqualToString:chs]) return emotion;
     }
-    
+    NSArray *pandaArr = [self pandaEmotions];
+    for (XQQFaceModel *emotion in pandaArr) {
+        if ([emotion.chs isEqualToString:chs]) return emotion;
+    }
     return nil;
 }
 
@@ -56,7 +59,7 @@ static NSMutableArray *_recentEmotions;
     return _recentEmotions;
 }
 
-static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
+static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions, *_pandaEmotions;
 
 + (NSArray *)emojiEmotions{
     
@@ -83,5 +86,13 @@ static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
         _lxhEmotions = [XQQFaceModel mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
     }
     return _lxhEmotions;
+}
+
++ (NSArray *)pandaEmotions{
+    if (!_pandaEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"emotion3" ofType:@"plist"];
+        _lxhEmotions = [XQQFaceModel mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _pandaEmotions;
 }
 @end

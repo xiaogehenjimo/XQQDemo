@@ -80,35 +80,19 @@
     //self.topBigScrollView.bounces = NO;
     //加载表情
     //默认表情
-    NSString * defaultPath = [[NSBundle mainBundle]pathForResource:@"defaultInfo" ofType:@"plist"];
-    NSArray * defaultArr = [[NSArray alloc]initWithContentsOfFile:defaultPath];
-    NSMutableArray * defaultModelArr = @[].mutableCopy;
-    for (NSDictionary * defaultDict in defaultArr) {
-        XQQFaceModel * model = [[XQQFaceModel alloc]init];
-        [model setValuesForKeysWithDictionary:defaultDict];
-        [defaultModelArr addObject:model];
-    }
-    //浪小花
+    NSArray * defaultModelArr = [XQQFaceModel mj_objectArrayWithFilename:@"defaultInfo.plist"];
     
-    NSString * lxhPath = [[NSBundle mainBundle]pathForResource:@"lxhInfo" ofType:@"plist"];
-    NSArray * lxhArr = [[NSArray alloc]initWithContentsOfFile:lxhPath];
-    NSMutableArray * lxhModelArr = @[].mutableCopy;
-    for (NSDictionary * lxhDict in lxhArr) {
-        XQQFaceModel * model = [[XQQFaceModel alloc]init];
-        [model setValuesForKeysWithDictionary:lxhDict];
-        [lxhModelArr addObject:model];
-    }
+    //浪小花
+    NSArray * lxhModelArr = [XQQFaceModel mj_objectArrayWithFilename:@"lxhInfo.plist"];
     //emoji
     //emojiInfo
-    NSString * emojiPath = [[NSBundle mainBundle]pathForResource:@"emojiInfo" ofType:@"plist"];
-    NSArray * emojiArr = [[NSArray alloc]initWithContentsOfFile:emojiPath];
-    NSMutableArray * emojiModelArr = @[].mutableCopy;
-    for (NSDictionary * emojiDict in emojiArr) {
-        XQQFaceModel * model = [[XQQFaceModel alloc]init];
-        [model setValuesForKeysWithDictionary:emojiDict];
-        [emojiModelArr addObject:model];
-    }
-    _faceArr = @[defaultModelArr,lxhModelArr,emojiModelArr];
+    NSArray * emojiModelArr = [XQQFaceModel mj_objectArrayWithFilename:@"emojiInfo.plist"];
+    
+    //emotion3
+    //panda
+    NSArray * pandaModelArr = [XQQFaceModel mj_objectArrayWithFilename:@"emotion3.plist"];
+
+    _faceArr = @[defaultModelArr,lxhModelArr,emojiModelArr,pandaModelArr];
     for (NSInteger i = 0; i < _faceArr.count; i ++) {
         CGFloat viewW = iphoneWidth;
         CGFloat viewX = i * iphoneWidth;
@@ -150,7 +134,7 @@
     [sendFaceBtn addTarget:self action:@selector(sendFaceBtnDidPress) forControlEvents:UIControlEventTouchUpInside];
     
     /*创建按钮*/
-    NSArray * nameArr = @[@"默认",@"浪小花",@"emoji"];
+    NSArray * nameArr = @[@"默认",@"浪小花",@"emoji",@"熊猫"];
     _typeArr = nameArr;
     for (NSInteger i = 0; i < nameArr.count; i ++) {
         CGFloat faceTypeBtnW = bottomScrollViewW / 4;
