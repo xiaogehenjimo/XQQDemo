@@ -10,12 +10,11 @@
 
 @implementation XQQOtherBtn
 
-
-
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
     CGRect imageRect = CGRectMake(0, 0, contentRect.size.width, contentRect.size.height * 0.8);
     return imageRect;
 }
+
 - (CGRect)titleRectForContentRect:(CGRect)contentRect{
     CGRect titleRect = CGRectMake(0,contentRect.size.height - contentRect.size.height * 0.1, contentRect.size.width, contentRect.size.height * 0.1);
     return titleRect;

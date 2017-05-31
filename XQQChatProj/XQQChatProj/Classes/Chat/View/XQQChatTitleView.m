@@ -35,6 +35,7 @@
     }
     return self;
 }
+
 - (void)setInfoDict:(NSDictionary *)infoDict{
     _infoDict = infoDict;
     id classss = infoDict[@"model"];

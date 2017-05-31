@@ -25,12 +25,14 @@
     }
     return self;
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSInteger pageCount = (_faceArr.count - 1) / 30 + 1;
     CGPoint offset = scrollView.contentOffset;
     NSInteger currentIndex = (offset.x / iphoneWidth + .5);
     _pageControlBlock(pageCount,currentIndex);
 }
+
 - (void)setFaceArr:(NSArray *)faceArr{
     _faceArr = faceArr;
     //创建一个个小View
@@ -62,6 +64,7 @@
     [self addSubview:pageControl];
     
 }
+
 /**
  *  拆分数组
  *  @param array   需要拆分的数组

@@ -15,8 +15,8 @@
 
 @implementation XQQChatBtn
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame{
+    
     if (self = [super initWithFrame:frame]) {
         [self addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -88,17 +88,15 @@
 }
 
 
-- (void)click:(XQQChatBtn *)btn
-{
+- (void)click:(XQQChatBtn *)btn{
    
-    
     if (_block) {
         _block(btn);
     }
 }
 
-+ (instancetype)createXQQButton
-{
++ (instancetype)createXQQButton{
+    
     return [XQQChatBtn buttonWithType:UIButtonTypeCustom];
 }
 

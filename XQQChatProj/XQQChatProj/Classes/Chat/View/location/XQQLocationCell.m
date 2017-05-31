@@ -20,8 +20,8 @@
     return cell;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         _addressNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, iphoneWidth - 20, 20)];
         _addressNameLabel.font = [UIFont boldSystemFontOfSize:16];

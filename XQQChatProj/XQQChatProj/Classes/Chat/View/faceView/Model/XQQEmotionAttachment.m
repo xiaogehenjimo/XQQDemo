@@ -9,8 +9,8 @@
 #import "XQQEmotionAttachment.h"
 
 @implementation XQQEmotionAttachment
-- (void)setEmotion:(XQQFaceModel *)emotion
-{
+- (void)setEmotion:(XQQFaceModel *)emotion{
+    
     _emotion = emotion;
     
     self.image = [UIImage imageNamed:emotion.png];

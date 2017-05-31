@@ -56,7 +56,12 @@
 #define XQQNoticGetFriendInfo @"getFriendInfo"
 #define XQQNoticeRecieveRemoteNotice @"didReceiveRemoteNotification"
 
-
+//设备判断
+#define iPhone4         (iphoneWidth == 320.0f && iphoneHeight == 480.0f ? YES : NO)
+#define iPhone5         (iphoneWidth == 320.0f && iphoneHeight == 568.0f ? YES : NO)
+#define iPhone6         (iphoneWidth == 375.0f && iphoneHeight == 667.0f ? YES : NO)
+#define iPhone6Plus     (iphoneWidth == 414.0f && iphoneHeight == 736.0f ? YES : NO)
+#define iPhone4_5       (iphoneWidth == 320.0f && iphoneHeight == 1.0f ? YES : NO)
 
 //链接
 #define XQQCommonURL @"https://api.budejie.com/api/api_open.php"
@@ -89,7 +94,7 @@
 #import "XQQQIniuTool.h"
 #import "XQQUserInfoTool.h"
 #import <SVProgressHUD.h>
-#import "UIImage+XQQResizing.h"
+#import "UIImage+XQQExtension.h"
 #import "NSString+XQQEmoji.h"
 #import "UITextView+XQQExtension.h"
 #import "EMCDDeviceManager.h"
@@ -101,7 +106,7 @@
 #import "NSObject+XQQExtension.h"
 #import "XQQBaiduMapTool.h"
 #import "RegexKitLite.h"
-
+#import "NSString+XQQSize.h"
 
 #endif
 

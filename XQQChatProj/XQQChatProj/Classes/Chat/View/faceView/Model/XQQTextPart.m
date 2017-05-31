@@ -9,8 +9,8 @@
 #import "XQQTextPart.h"
 
 @implementation XQQTextPart
-- (NSString *)description
-{
+- (NSString *)description{
+    
     return [NSString stringWithFormat:@"%@ - %@", self.text, NSStringFromRange(self.range)];
 }
 @end

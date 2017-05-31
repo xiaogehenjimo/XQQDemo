@@ -26,7 +26,6 @@
 @interface XQQChatInputView : UIView
 /** 代理指针 */
 @property (nonatomic, weak)  id<chatInputViewDelegate> delegate;
-
 /** 左侧按钮 */
 @property(nonatomic, strong)  UIButton  *  leftBtn;
 /** 中间的输入框 */

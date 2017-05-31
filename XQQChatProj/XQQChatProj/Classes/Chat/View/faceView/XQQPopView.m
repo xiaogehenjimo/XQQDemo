@@ -27,8 +27,8 @@
     return self;
 }
 
-- (void)showFrom:(UIButton *)button
-{
+- (void)showFrom:(UIButton *)button{
+    
     if (button == nil) return;
     // 给popView传递数据
     // 取得最上面的window

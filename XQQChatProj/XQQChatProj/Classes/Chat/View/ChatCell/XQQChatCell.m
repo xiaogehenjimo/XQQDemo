@@ -106,9 +106,13 @@
         //没有
     }else{
         //有
-        CGSize textSize = [timeStr boundingRectWithSize:CGSizeMake(MAXFLOAT, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size;
+//        CGSize textSize = [timeStr boundingRectWithSize:CGSizeMake(MAXFLOAT, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size;
+        CGFloat textWidth = [timeStr widthWithFont:[UIFont systemFontOfSize:13] constrainedToHeight:20];
+        
         self.timeLabel.text = timeStr;
-        self.timeLabel.frame = CGRectMake((iphoneWidth - textSize.width - 10)/2, 0, textSize.width + 10, 20);
+        
+        self.timeLabel.frame = CGRectMake((iphoneWidth - textWidth - 10)/2, 0, textWidth + 10, 20);
+        
         self.timeLabel.hidden = NO;
     }
     //判断消息类型

@@ -13,16 +13,16 @@
 @implementation XQQEmotionTool
 static NSMutableArray *_recentEmotions;
 
-+ (void)initialize
-{
++ (void)initialize{
+    
     _recentEmotions = [NSKeyedUnarchiver unarchiveObjectWithFile:HWRecentEmotionsPath];
     if (_recentEmotions == nil) {
         _recentEmotions = [NSMutableArray array];
     }
 }
 
-+ (XQQFaceModel *)emotionWithChs:(NSString *)chs
-{
++ (XQQFaceModel *)emotionWithChs:(NSString *)chs{
+    
     NSArray *defaults = [self defaultEmotions];
     for (XQQFaceModel *emotion in defaults) {
         if ([emotion.chs isEqualToString:chs]) return emotion;
@@ -36,8 +36,8 @@ static NSMutableArray *_recentEmotions;
     return nil;
 }
 
-+ (void)addRecentEmotion:(XQQFaceModel *)emotion
-{
++ (void)addRecentEmotion:(XQQFaceModel *)emotion{
+    
     // 删除重复的表情
     [_recentEmotions removeObject:emotion];
     
@@ -51,15 +51,15 @@ static NSMutableArray *_recentEmotions;
 /**
  *  返回装着HWEmotion模型的数组
  */
-+ (NSArray *)recentEmotions
-{
++ (NSArray *)recentEmotions{
+    
     return _recentEmotions;
 }
 
 static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
 
-+ (NSArray *)emojiEmotions
-{
++ (NSArray *)emojiEmotions{
+    
     if (!_emojiEmotions) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"" ofType:nil];
         _emojiEmotions = [XQQFaceModel mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
@@ -67,8 +67,8 @@ static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
     return _emojiEmotions;
 }
 
-+ (NSArray *)defaultEmotions
-{
++ (NSArray *)defaultEmotions{
+    
     if (!_defaultEmotions) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"defaultInfo" ofType:@"plist"];
         _defaultEmotions = [XQQFaceModel mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
@@ -76,8 +76,8 @@ static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
     return _defaultEmotions;
 }
 
-+ (NSArray *)lxhEmotions
-{
++ (NSArray *)lxhEmotions{
+    
     if (!_lxhEmotions) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"lxhInfo" ofType:@"plist"];
         _lxhEmotions = [XQQFaceModel mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];

@@ -52,7 +52,6 @@
 		EE252B9E1ECEE5B90062FBAC /* NSObject+XQQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FC41ECEE5A00062FBAC /* NSObject+XQQExtension.m */; };
 		EE252B9F1ECEE5B90062FBAC /* NSString+XQQEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FC61ECEE5A00062FBAC /* NSString+XQQEmoji.m */; };
 		EE252BA01ECEE5B90062FBAC /* UIBarButtonItem+XQQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FC81ECEE5A00062FBAC /* UIBarButtonItem+XQQExtension.m */; };
-		EE252BA11ECEE5B90062FBAC /* UIImage+XQQResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FCA1ECEE5A00062FBAC /* UIImage+XQQResizing.m */; };
 		EE252BA21ECEE5B90062FBAC /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FCC1ECEE5A00062FBAC /* UIImage-Extensions.m */; };
 		EE252BA31ECEE5B90062FBAC /* UITextView+XQQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FCE1ECEE5A00062FBAC /* UITextView+XQQExtension.m */; };
 		EE252BA41ECEE5B90062FBAC /* UIView+XQQAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = EE251FD01ECEE5A00062FBAC /* UIView+XQQAdd.m */; };
@@ -2890,6 +2889,9 @@
 		EE2536B41ECEE5BD0062FBAC /* XQQUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE252B751ECEE5B90062FBAC /* XQQUserInfoTool.m */; };
 		EE2536B51ECEE5BD0062FBAC /* XQQUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EE252B771ECEE5B90062FBAC /* XQQUtility.m */; };
 		EE380E161EDEA19E004E4FBF /* NSObject+Selector.m in Sources */ = {isa = PBXBuildFile; fileRef = EE380E151EDEA19E004E4FBF /* NSObject+Selector.m */; };
+		EE380E191EDEB1F3004E4FBF /* UIColor+XQQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE380E181EDEB1F3004E4FBF /* UIColor+XQQExtension.m */; };
+		EE380E1C1EDEB2E9004E4FBF /* UIImage+XQQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EE380E1B1EDEB2E9004E4FBF /* UIImage+XQQExtension.m */; };
+		EE380E1F1EDEB50F004E4FBF /* NSString+XQQSize.m in Sources */ = {isa = PBXBuildFile; fileRef = EE380E1E1EDEB50F004E4FBF /* NSString+XQQSize.m */; };
 		EED3A14F1ED4230E00442F09 /* XQQEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A14E1ED4230E00442F09 /* XQQEmotionAttachment.m */; };
 		EED3A1521ED42BFE00442F09 /* XQQTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A1511ED42BFE00442F09 /* XQQTextPart.m */; };
 		EED3A1561ED42C8D00442F09 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A1551ED42C8D00442F09 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -3001,8 +3003,6 @@
 		EE251FC61ECEE5A00062FBAC /* NSString+XQQEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XQQEmoji.m"; sourceTree = "<group>"; };
 		EE251FC71ECEE5A00062FBAC /* UIBarButtonItem+XQQExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+XQQExtension.h"; sourceTree = "<group>"; };
 		EE251FC81ECEE5A00062FBAC /* UIBarButtonItem+XQQExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+XQQExtension.m"; sourceTree = "<group>"; };
-		EE251FC91ECEE5A00062FBAC /* UIImage+XQQResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XQQResizing.h"; sourceTree = "<group>"; };
-		EE251FCA1ECEE5A00062FBAC /* UIImage+XQQResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XQQResizing.m"; sourceTree = "<group>"; };
 		EE251FCB1ECEE5A00062FBAC /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extensions.h"; sourceTree = "<group>"; };
 		EE251FCC1ECEE5A00062FBAC /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extensions.m"; sourceTree = "<group>"; };
 		EE251FCD1ECEE5A00062FBAC /* UITextView+XQQExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+XQQExtension.h"; sourceTree = "<group>"; };
@@ -5941,6 +5941,12 @@
 		EE252B771ECEE5B90062FBAC /* XQQUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQUtility.m; sourceTree = "<group>"; };
 		EE380E141EDEA19E004E4FBF /* NSObject+Selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Selector.h"; sourceTree = "<group>"; };
 		EE380E151EDEA19E004E4FBF /* NSObject+Selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Selector.m"; sourceTree = "<group>"; };
+		EE380E171EDEB1F3004E4FBF /* UIColor+XQQExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XQQExtension.h"; sourceTree = "<group>"; };
+		EE380E181EDEB1F3004E4FBF /* UIColor+XQQExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XQQExtension.m"; sourceTree = "<group>"; };
+		EE380E1A1EDEB2E9004E4FBF /* UIImage+XQQExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XQQExtension.h"; sourceTree = "<group>"; };
+		EE380E1B1EDEB2E9004E4FBF /* UIImage+XQQExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XQQExtension.m"; sourceTree = "<group>"; };
+		EE380E1D1EDEB50F004E4FBF /* NSString+XQQSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XQQSize.h"; sourceTree = "<group>"; };
+		EE380E1E1EDEB50F004E4FBF /* NSString+XQQSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XQQSize.m"; sourceTree = "<group>"; };
 		EED3A14D1ED4230E00442F09 /* XQQEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQEmotionAttachment.h; sourceTree = "<group>"; };
 		EED3A14E1ED4230E00442F09 /* XQQEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQEmotionAttachment.m; sourceTree = "<group>"; };
 		EED3A1501ED42BFE00442F09 /* XQQTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQTextPart.h; sourceTree = "<group>"; };
@@ -6256,8 +6262,6 @@
 				EE251FC61ECEE5A00062FBAC /* NSString+XQQEmoji.m */,
 				EE251FC71ECEE5A00062FBAC /* UIBarButtonItem+XQQExtension.h */,
 				EE251FC81ECEE5A00062FBAC /* UIBarButtonItem+XQQExtension.m */,
-				EE251FC91ECEE5A00062FBAC /* UIImage+XQQResizing.h */,
-				EE251FCA1ECEE5A00062FBAC /* UIImage+XQQResizing.m */,
 				EE251FCB1ECEE5A00062FBAC /* UIImage-Extensions.h */,
 				EE251FCC1ECEE5A00062FBAC /* UIImage-Extensions.m */,
 				EE251FCD1ECEE5A00062FBAC /* UITextView+XQQExtension.h */,
@@ -6266,6 +6270,12 @@
 				EE251FD01ECEE5A00062FBAC /* UIView+XQQAdd.m */,
 				EE380E141EDEA19E004E4FBF /* NSObject+Selector.h */,
 				EE380E151EDEA19E004E4FBF /* NSObject+Selector.m */,
+				EE380E171EDEB1F3004E4FBF /* UIColor+XQQExtension.h */,
+				EE380E181EDEB1F3004E4FBF /* UIColor+XQQExtension.m */,
+				EE380E1A1EDEB2E9004E4FBF /* UIImage+XQQExtension.h */,
+				EE380E1B1EDEB2E9004E4FBF /* UIImage+XQQExtension.m */,
+				EE380E1D1EDEB50F004E4FBF /* NSString+XQQSize.h */,
+				EE380E1E1EDEB50F004E4FBF /* NSString+XQQSize.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -12598,6 +12608,7 @@
 				EE252BEA1ECEE5B90062FBAC /* XQQMeViewController.m in Sources */,
 				EE252B841ECEE5B90062FBAC /* QNConfig.m in Sources */,
 				EE252BB61ECEE5B90062FBAC /* XQQChatCell.m in Sources */,
+				EE380E1C1EDEB2E9004E4FBF /* UIImage+XQQExtension.m in Sources */,
 				EE252B881ECEE5B90062FBAC /* GTMBase64.m in Sources */,
 				EE252B901ECEE5B90062FBAC /* QNResumeUpload.m in Sources */,
 				EE2536AC1ECEE5BD0062FBAC /* XQQChatJumpTool.m in Sources */,
@@ -12610,6 +12621,7 @@
 				EE252BA31ECEE5B90062FBAC /* UITextView+XQQExtension.m in Sources */,
 				EE252BC91ECEE5B90062FBAC /* XQQLoginTextField.m in Sources */,
 				EE252B791ECEE5B90062FBAC /* EMAudioPlayerUtil.m in Sources */,
+				EE380E1F1EDEB50F004E4FBF /* NSString+XQQSize.m in Sources */,
 				EE252BE51ECEE5B90062FBAC /* XQQProgrossView.m in Sources */,
 				EE252B8A1ECEE5B90062FBAC /* QNHttpManager.m in Sources */,
 				EE252B9A1ECEE5B90062FBAC /* YCXMenu.m in Sources */,
@@ -12623,10 +12635,10 @@
 				EE252BC41ECEE5B90062FBAC /* XQQChatInputView.m in Sources */,
 				EE252BDB1ECEE5B90062FBAC /* XQQCommentModel.m in Sources */,
 				EE252B9C1ECEE5B90062FBAC /* NSCalendar+XQQExtension.m in Sources */,
-				EE252BA11ECEE5B90062FBAC /* UIImage+XQQResizing.m in Sources */,
 				EE2536B31ECEE5BD0062FBAC /* XQQToastTool.m in Sources */,
 				EE252B921ECEE5B90062FBAC /* QNUploadOption.m in Sources */,
 				EE252BD61ECEE5B90062FBAC /* XQQDiscoverSevenController.m in Sources */,
+				EE380E191EDEB1F3004E4FBF /* UIColor+XQQExtension.m in Sources */,
 				EE2536AD1ECEE5BD0062FBAC /* XQQDataManager.m in Sources */,
 				EE252B971ECEE5B90062FBAC /* EMVoiceConverter.mm in Sources */,
 				EE252BC21ECEE5B90062FBAC /* XQQChatOtherView.m in Sources */,
