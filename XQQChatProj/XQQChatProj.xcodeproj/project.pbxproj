@@ -2889,6 +2889,7 @@
 		EE2536B31ECEE5BD0062FBAC /* XQQToastTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE252B731ECEE5B90062FBAC /* XQQToastTool.m */; };
 		EE2536B41ECEE5BD0062FBAC /* XQQUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EE252B751ECEE5B90062FBAC /* XQQUserInfoTool.m */; };
 		EE2536B51ECEE5BD0062FBAC /* XQQUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EE252B771ECEE5B90062FBAC /* XQQUtility.m */; };
+		EE380E161EDEA19E004E4FBF /* NSObject+Selector.m in Sources */ = {isa = PBXBuildFile; fileRef = EE380E151EDEA19E004E4FBF /* NSObject+Selector.m */; };
 		EED3A14F1ED4230E00442F09 /* XQQEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A14E1ED4230E00442F09 /* XQQEmotionAttachment.m */; };
 		EED3A1521ED42BFE00442F09 /* XQQTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A1511ED42BFE00442F09 /* XQQTextPart.m */; };
 		EED3A1561ED42C8D00442F09 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A1551ED42C8D00442F09 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -5938,6 +5939,8 @@
 		EE252B751ECEE5B90062FBAC /* XQQUserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQUserInfoTool.m; sourceTree = "<group>"; };
 		EE252B761ECEE5B90062FBAC /* XQQUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQUtility.h; sourceTree = "<group>"; };
 		EE252B771ECEE5B90062FBAC /* XQQUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQUtility.m; sourceTree = "<group>"; };
+		EE380E141EDEA19E004E4FBF /* NSObject+Selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Selector.h"; sourceTree = "<group>"; };
+		EE380E151EDEA19E004E4FBF /* NSObject+Selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Selector.m"; sourceTree = "<group>"; };
 		EED3A14D1ED4230E00442F09 /* XQQEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQEmotionAttachment.h; sourceTree = "<group>"; };
 		EED3A14E1ED4230E00442F09 /* XQQEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQEmotionAttachment.m; sourceTree = "<group>"; };
 		EED3A1501ED42BFE00442F09 /* XQQTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQTextPart.h; sourceTree = "<group>"; };
@@ -6261,6 +6264,8 @@
 				EE251FCE1ECEE5A00062FBAC /* UITextView+XQQExtension.m */,
 				EE251FCF1ECEE5A00062FBAC /* UIView+XQQAdd.h */,
 				EE251FD01ECEE5A00062FBAC /* UIView+XQQAdd.m */,
+				EE380E141EDEA19E004E4FBF /* NSObject+Selector.h */,
+				EE380E151EDEA19E004E4FBF /* NSObject+Selector.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -12631,6 +12636,7 @@
 				EE252BC81ECEE5B90062FBAC /* XQQLoginViewController.m in Sources */,
 				EE252BE01ECEE5B90062FBAC /* XQQEssencePhotoView.m in Sources */,
 				EE252BA41ECEE5B90062FBAC /* UIView+XQQAdd.m in Sources */,
+				EE380E161EDEA19E004E4FBF /* NSObject+Selector.m in Sources */,
 				EE252B8D1ECEE5B90062FBAC /* QNUserAgent.m in Sources */,
 				EE252BE71ECEE5B90062FBAC /* XQQScrollBtn.m in Sources */,
 				EE252BAC1ECEE5B90062FBAC /* XQQSearchBottomTableView.m in Sources */,
