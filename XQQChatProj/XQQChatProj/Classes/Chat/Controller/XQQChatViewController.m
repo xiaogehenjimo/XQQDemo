@@ -8,7 +8,6 @@
 
 #import "XQQChatViewController.h"
 #import "XQQChatTitleView.h"
-//#import "MWPhotoBrowser.h"
 #import "XQQChatCell.h"
 #import "XQQVoicePlayAnimationTool.h"
 
@@ -214,10 +213,20 @@
     cell.friendModel = self.model;
     cell.conversation = self.chatConversation;
     cell.message = self.dataArr[indexPath.row];
+    __weak typeof(self) weakSelf = self;
     cell.chatBtn.block = ^(XQQChatBtn* button){
-        [self chatContentDidPress:indexPath button:button];
+        [weakSelf chatContentDidPress:indexPath button:button];
+    };
+    cell.chatBtn.longPressBlock = ^(XQQChatBtn*button){
+        
+        
     };
     return cell;
+}
+
+
+- (void)relay{
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

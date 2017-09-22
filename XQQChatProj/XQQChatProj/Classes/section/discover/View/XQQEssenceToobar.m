@@ -12,7 +12,7 @@
 /** 里面存放所有分割线 */
 @property(nonatomic, strong)  NSMutableArray  *  dividerArr;
 /** 里面存放所有的按钮 */
-@property(nonatomic, strong)  NSMutableArray  * buttonArr;
+@property(nonatomic, strong)  NSMutableArray  *  buttonArr;
 /** 赞 */
 @property(nonatomic, strong)  UIButton        *  supportBtn;
 /** 踩 */

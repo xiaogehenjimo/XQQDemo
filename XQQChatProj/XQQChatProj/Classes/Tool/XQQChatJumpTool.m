@@ -8,7 +8,6 @@
 
 #import "XQQChatJumpTool.h"
 #import "XQQVoicePlayAnimationTool.h"
-//#import "MWPhotoBrowser.h"
 #import "XQQDetailLocationController.h"
 @implementation XQQChatJumpTool
 
@@ -38,8 +37,8 @@
         //EMImageMessageBody *imageBody = body;
         // 显示大图片
         vc.imageMessage = message;
-//        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc]initWithDelegate:vc];
-//        [vc.navigationController pushViewController:browser animated:YES];
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc]initWithDelegate:vc];
+        [vc.navigationController pushViewController:browser animated:YES];
     }else if ([body isKindOfClass:[EMLocationMessageBody class]]){//位置
         EMLocationMessageBody * locationBody = body;
         XQQDetailLocationController * detailLocationVC = [[XQQDetailLocationController alloc]init];

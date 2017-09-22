@@ -134,6 +134,7 @@
     }else if ([body isKindOfClass:[EMVoiceMessageBody class]]){//语音
         EMVideoMessageBody * voiceBody = body;
         //设置图片和时间
+        [self.chatBtn setAttributedTitle:nil forState:UIControlStateNormal];//复用导致语音上面显示富文本
         [self.chatBtn setTitle:[NSString stringWithFormat:@"%zd'",voiceBody.duration] forState:UIControlStateNormal];
         self.chatBtn.xqq_size = CGSizeMake(allSubViewHeight + 50, allSubViewHeight + 15);
         if ([message.from isEqualToString:userName]) {//本人发送的

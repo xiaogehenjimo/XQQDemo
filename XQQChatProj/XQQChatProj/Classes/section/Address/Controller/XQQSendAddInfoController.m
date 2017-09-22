@@ -7,6 +7,7 @@
 //
 
 #import "XQQSendAddInfoController.h"
+#import "XQQFriendModel.h"
 
 @interface XQQSendAddInfoController ()<UITextViewDelegate>
 /** 输入框 */

@@ -3055,6 +3055,9 @@
 		EE380F651EDEBAF4004E4FBF /* b_9@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = EE380EC21EDEBAF4004E4FBF /* b_9@2x.gif */; };
 		EE380F661EDEBAF4004E4FBF /* emotion.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE380EC31EDEBAF4004E4FBF /* emotion.plist */; };
 		EE380F671EDEBAF4004E4FBF /* emotion1.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE380EC41EDEBAF4004E4FBF /* emotion1.plist */; };
+		EE9425751F6676FE006079B2 /* UIImageView+YT_SingleClick.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9425741F6676FE006079B2 /* UIImageView+YT_SingleClick.m */; };
+		EE94257A1F6682BE006079B2 /* UIColor+KDS_HexToUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9425771F6682BE006079B2 /* UIColor+KDS_HexToUIColor.m */; };
+		EE94257B1F6682BE006079B2 /* UIFont+KDS_FontHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9425791F6682BE006079B2 /* UIFont+KDS_FontHandle.m */; };
 		EED3A14F1ED4230E00442F09 /* XQQEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A14E1ED4230E00442F09 /* XQQEmotionAttachment.m */; };
 		EED3A1521ED42BFE00442F09 /* XQQTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A1511ED42BFE00442F09 /* XQQTextPart.m */; };
 		EED3A1561ED42C8D00442F09 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = EED3A1551ED42C8D00442F09 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -6273,6 +6276,12 @@
 		EE380EC21EDEBAF4004E4FBF /* b_9@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "b_9@2x.gif"; sourceTree = "<group>"; };
 		EE380EC31EDEBAF4004E4FBF /* emotion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotion.plist; sourceTree = "<group>"; };
 		EE380EC41EDEBAF4004E4FBF /* emotion1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotion1.plist; sourceTree = "<group>"; };
+		EE9425731F6676FE006079B2 /* UIImageView+YT_SingleClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YT_SingleClick.h"; sourceTree = "<group>"; };
+		EE9425741F6676FE006079B2 /* UIImageView+YT_SingleClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YT_SingleClick.m"; sourceTree = "<group>"; };
+		EE9425761F6682BE006079B2 /* UIColor+KDS_HexToUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KDS_HexToUIColor.h"; sourceTree = "<group>"; };
+		EE9425771F6682BE006079B2 /* UIColor+KDS_HexToUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KDS_HexToUIColor.m"; sourceTree = "<group>"; };
+		EE9425781F6682BE006079B2 /* UIFont+KDS_FontHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+KDS_FontHandle.h"; sourceTree = "<group>"; };
+		EE9425791F6682BE006079B2 /* UIFont+KDS_FontHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+KDS_FontHandle.m"; sourceTree = "<group>"; };
 		EED3A14D1ED4230E00442F09 /* XQQEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQEmotionAttachment.h; sourceTree = "<group>"; };
 		EED3A14E1ED4230E00442F09 /* XQQEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQEmotionAttachment.m; sourceTree = "<group>"; };
 		EED3A1501ED42BFE00442F09 /* XQQTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQTextPart.h; sourceTree = "<group>"; };
@@ -6602,6 +6611,12 @@
 				EE380E1B1EDEB2E9004E4FBF /* UIImage+XQQExtension.m */,
 				EE380E1D1EDEB50F004E4FBF /* NSString+XQQSize.h */,
 				EE380E1E1EDEB50F004E4FBF /* NSString+XQQSize.m */,
+				EE9425731F6676FE006079B2 /* UIImageView+YT_SingleClick.h */,
+				EE9425741F6676FE006079B2 /* UIImageView+YT_SingleClick.m */,
+				EE9425761F6682BE006079B2 /* UIColor+KDS_HexToUIColor.h */,
+				EE9425771F6682BE006079B2 /* UIColor+KDS_HexToUIColor.m */,
+				EE9425781F6682BE006079B2 /* UIFont+KDS_FontHandle.h */,
+				EE9425791F6682BE006079B2 /* UIFont+KDS_FontHandle.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -13207,6 +13222,7 @@
 				EE252BB91ECEE5B90062FBAC /* XQQAllFaceView.m in Sources */,
 				EE252BE31ECEE5B90062FBAC /* XQQEssenceVideoView.m in Sources */,
 				EE252BEE1ECEE5B90062FBAC /* XQQMeFirstCell.m in Sources */,
+				EE9425751F6676FE006079B2 /* UIImageView+YT_SingleClick.m in Sources */,
 				EE252B871ECEE5B90062FBAC /* QNUrlSafeBase64.m in Sources */,
 				EE252BCD1ECEE5B90062FBAC /* XQQFriendDetailController.m in Sources */,
 				EE252B861ECEE5B90062FBAC /* QNEtag.m in Sources */,
@@ -13262,6 +13278,7 @@
 				EE252BCE1ECEE5B90062FBAC /* XQQSendAddInfoController.m in Sources */,
 				EE2536AA1ECEE5BD0062FBAC /* XQQBaiduMapTool.m in Sources */,
 				EE252BAF1ECEE5B90062FBAC /* XQQSearchTopVIew.m in Sources */,
+				EE94257A1F6682BE006079B2 /* UIColor+KDS_HexToUIColor.m in Sources */,
 				EE252BF51ECEE5B90062FBAC /* XQQConversationCell.m in Sources */,
 				EE252BDC1ECEE5B90062FBAC /* XQQCommentUserModel.m in Sources */,
 				EE252BB81ECEE5B90062FBAC /* XQQFaceModel.m in Sources */,
@@ -13320,6 +13337,7 @@
 				EE252B8D1ECEE5B90062FBAC /* QNUserAgent.m in Sources */,
 				EE252BE71ECEE5B90062FBAC /* XQQScrollBtn.m in Sources */,
 				EE252BAC1ECEE5B90062FBAC /* XQQSearchBottomTableView.m in Sources */,
+				EE94257B1F6682BE006079B2 /* UIFont+KDS_FontHandle.m in Sources */,
 				EED3A1561ED42C8D00442F09 /* RegexKitLite.m in Sources */,
 				EE252B961ECEE5B90062FBAC /* wav.mm in Sources */,
 				EE2536B21ECEE5BD0062FBAC /* XQQQIniuTool.m in Sources */,

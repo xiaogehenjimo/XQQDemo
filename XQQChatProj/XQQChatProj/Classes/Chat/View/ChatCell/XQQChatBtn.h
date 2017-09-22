@@ -10,12 +10,13 @@
 
 @class XQQChatBtn;
 typedef void(^XQQButtonClickBlock)(XQQChatBtn *);
-
+typedef void(^XQQButtonLongPress)(XQQChatBtn *);
 @interface XQQChatBtn : UIButton
 
 /** 回调 */
-@property (nonatomic, copy) XQQButtonClickBlock block;
-
+@property (nonatomic, copy)  XQQButtonClickBlock  block;
+/** 按钮长按手势 */
+@property (nonatomic, copy)  XQQButtonLongPress  longPressBlock;
 
 + (instancetype)createXQQButton;
 

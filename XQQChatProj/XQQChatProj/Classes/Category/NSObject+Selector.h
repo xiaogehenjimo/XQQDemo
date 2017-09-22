@@ -13,9 +13,9 @@
 
 /**
  NSInvocation 执行方法
-
+ 
  @param selector 方法
- @param objects 多参数
+ @param objects 多参数 如果是基础数据类型转成 NSNumber 不推荐@()
  */
 - (id)performSelector:(SEL)selector withObjects:(NSArray*)objects;
 

@@ -10,6 +10,7 @@
 #import "XQQDetailCell.h"
 #import "XQQSendAddInfoController.h"
 #import "XQQNavigationController.h"
+#import "XQQFriendModel.h"
 
 @interface XQQAddInfoController ()<UITableViewDelegate,UITableViewDataSource,EMCallManagerDelegate>
 /*列表*/

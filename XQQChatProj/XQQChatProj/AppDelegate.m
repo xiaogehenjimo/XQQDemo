@@ -47,10 +47,13 @@
 
 
 
-@interface AppDelegate ()<EMChatManagerDelegate>
+@interface AppDelegate ()<EMChatManagerDelegate,UIAlertViewDelegate>
 @property (nonatomic, copy)NSString * userName;//记录申请的好友名字
 /*是否通过推送信息进入的应用*/
 @property (nonatomic) BOOL isLaunchedByNotification;
+/** 弹窗 */
+@property(nonatomic, strong)  UIAlertView * alert;
+
 @end
 
 @implementation AppDelegate
@@ -105,7 +108,47 @@
 //    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"a61a06f0ba055d9ea29d47ccb2142a29"];
     /*获取群列表*/
     [self getGroupList];
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:dispatch_get_main_queue()];
     return YES;
+}
+- (void)didReceiveBuddyRequest:(NSString *)username
+                       message:(NSString *)message{
+    NSLog(@"请求好友为：%@ 申请语句为：%@",username,message);
+    self.userName = username;
+    //UIAlertViewStylePlainTextInput
+    _alert = [[UIAlertView alloc]initWithTitle:@"好友申请" message:[NSString stringWithFormat:@"%@申请添加你为好友",username] delegate:self cancelButtonTitle:@"拒绝" otherButtonTitles:@"同意", nil];
+    [_alert show];
+}
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView == _alert) {
+        [_alert dismissWithClickedButtonIndex:0 animated:NO];
+        _alert = nil;
+        if (buttonIndex == 0) {
+            //拒绝
+            UIAlertView * rejustAlert = [[UIAlertView alloc]initWithTitle:@"拒绝申请" message:@"输入你要拒绝的话" delegate:self cancelButtonTitle:@"残忍拒绝" otherButtonTitles:nil, nil];
+            rejustAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [rejustAlert show];
+        }else{
+            //同意
+            BOOL isSuc = [[EaseMob sharedInstance].chatManager acceptBuddyRequest:self.userName error:nil];
+            if (isSuc) {
+                XQQLog(@"同意对方添加自己为好友");
+            }else{
+                XQQLog(@"添加失败");
+            }
+        }
+    }else{
+        UITextField * textField = [alertView textFieldAtIndex:0];
+        BOOL isSuc =  [[EaseMob sharedInstance].chatManager rejectBuddyRequest:self.userName reason:textField.text error:nil];
+        if (isSuc) {
+            XQQLog(@"拒绝成功");
+        }else{
+            XQQLog(@"拒绝失败");
+        }
+    }
 }
 
 // 将得到的deviceToken传给SDK

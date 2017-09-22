@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XQQFriendModel.h"
+
+@class XQQFriendModel;
 @interface XQQSendAddInfoController : UIViewController
 /** 用户信息 */
 @property(nonatomic, strong)  XQQFriendModel  *  friendModel;
